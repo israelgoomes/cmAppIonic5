@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClienteModel } from '../../../models/cliente-model';
 import { ClienteService } from '../../../services/cliente-service/cliente.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class EditaClienteComponent implements OnInit {
 
   clientForm: FormGroup
-
+  editable: boolean = false;
   @Input() cliente: ClienteModel;
 
   constructor(private fb: FormBuilder, 
@@ -22,10 +22,10 @@ export class EditaClienteComponent implements OnInit {
 
   ngOnInit() {
 
-
+    
     this.clientForm = this.fb.group({
       _id: this.cliente._id,
-      nome: this.cliente.nome,
+      nome: [this.cliente.nome],
       telefone: this.cliente.tel,
       email: this.cliente.email,
       cep: this.cliente.cep,
@@ -34,6 +34,7 @@ export class EditaClienteComponent implements OnInit {
       cidade: this.cliente.cidade,
       estado: this.cliente.estado
     });
+    this.clientForm.disable()
   }
 
   salvar(){
@@ -41,6 +42,14 @@ export class EditaClienteComponent implements OnInit {
     .subscribe(data =>{
       this.router.navigate(['/tabs/tabs/clientes']);    })
     //console.log('Valor do formulário', this.clientForm.value);
+  }
+
+  edit(){
+    this.clientForm.enable();
+  }
+
+  cancel(){
+    this.clientForm.disable()
   }
 
 }

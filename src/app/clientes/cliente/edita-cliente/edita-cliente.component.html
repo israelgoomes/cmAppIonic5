@@ -5,14 +5,10 @@
   <ion-card-content>
      <form [formGroup]="clientForm">
 
-      <!-- <ion-row> -->
-
-        <ion-row>
     
     <mat-form-field style="width: 100%;">
       <input matInput placeholder="Nome" formControlName="nome">
     </mat-form-field>
-</ion-row>
 
     <mat-form-field>
       <input matInput placeholder="Telefone" formControlName="telefone">
@@ -41,7 +37,10 @@
       <input matInput placeholder="Estado" formControlName="estado">
     </mat-form-field>
 
+    <ion-icon style="float: left" (click)="edit()" name="settings-outline"></ion-icon>
+    <ion-icon style="float: right" (click)="cancel()" name="close-circle-outline"></ion-icon>
 
+    
 <!-- </ion-row> -->
   </form>
   </ion-card-content>
