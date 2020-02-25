@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ClienteModel } from '../../../models/cliente-model';
 import { ClienteService } from '../../../services/cliente-service/cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edita-cliente',
@@ -14,11 +15,13 @@ export class EditaClienteComponent implements OnInit {
 
   @Input() cliente: ClienteModel;
 
-  constructor(private fb: FormBuilder, private clienteSrvc: ClienteService) { }
+  constructor(private fb: FormBuilder, 
+              private clienteSrvc: ClienteService,
+              private router: Router
+            ) { }
 
   ngOnInit() {
 
-    console.log('cliente no componente ', this.cliente)
 
     this.clientForm = this.fb.group({
       _id: this.cliente._id,
@@ -36,8 +39,7 @@ export class EditaClienteComponent implements OnInit {
   salvar(){
     this.clienteSrvc.alterClient(this.clientForm.value, this.clientForm.get('_id').value)
     .subscribe(data =>{
-      console.log('Dados Atualizado com sucesso')
-    })
+      this.router.navigate(['/tabs/tabs/clientes']);    })
     //console.log('Valor do formulário', this.clientForm.value);
   }
 

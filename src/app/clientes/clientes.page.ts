@@ -17,16 +17,18 @@ export class ClientesPage implements OnInit {
   constructor(private clienteSrvc: ClienteService, private ngxService: NgxUiLoaderService) { }
 
   ngOnInit() {
-
+    console.log('Page principal')
 
     let userData = JSON.parse(localStorage.getItem(configHelper.storageKeys.user));
-    console.log('dados do usuario', userData)
 
     this.clienteSrvc.getClientsByIdUser(userData._id).subscribe(clientes => {
-      console.log('clientes', clientes)
       this.clientes = clientes;
        this.ngxService.stop();
     })
+  }
+
+  ionViewDidEnter(){
+    this.ngOnInit();
   }
 
 }
