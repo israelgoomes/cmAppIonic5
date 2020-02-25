@@ -1,0 +1,21 @@
+<!-- <app-header></app-header> -->
+<ion-buttons >
+  <ion-menu-button autoHide="false"></ion-menu-button>
+</ion-buttons>
+<ion-content [fullscreen]="true">
+
+<app-header></app-header>
+
+  
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">clientes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<div *ngFor="let cliente of clientes">
+<app-cliente [cliente]="cliente" ></app-cliente>
+</div>
+</ion-content>
+

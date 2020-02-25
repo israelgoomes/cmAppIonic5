@@ -1,0 +1,44 @@
+<!-- <ion-header>
+  <ion-navbar >
+    <ion-title>title</ion-title>
+  </ion-navbar>
+  <ion-back-button defaultHref="/detalhe-cliente"></ion-back-button>
+
+</ion-header> -->
+
+<!-- <ion-header [translucent]="true"> -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/detalhe-cliente"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+<!-- </ion-header> -->
+
+
+<ion-content>
+
+  <section id="sec-logo" >
+
+  <div id="left">
+    <div class="circle" style="text-align: center; color: white;">
+      <p style="margin-left: auto; margin-right: auto; font-size: 25px; color: blue;">
+      {{iniciais}}
+    </p>   
+    </div>
+  </div>  
+
+  <div id="right">
+{{cliente.nome}}<br/>
+{{cliente.email}}<br/>
+{{cliente.tel}}<br/>
+  </div>
+
+  </section>
+<div>
+&nbsp;
+<app-edita-cliente [cliente]="cliente"></app-edita-cliente>
+</div>
+</ion-content>
+
+
+

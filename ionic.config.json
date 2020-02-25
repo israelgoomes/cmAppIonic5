@@ -1,0 +1,7 @@
+{
+  "name": "cmApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

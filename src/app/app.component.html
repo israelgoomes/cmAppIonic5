@@ -1,0 +1,40 @@
+<ion-app>
+    <ion-menu side="start" contentId="main-content" type="overlay">
+      <ion-content>
+                  <section class="menu-color">
+            <div id="picture-position">
+              <ion-item class="circle">
+                  <img [src]="usuarioLogado?.foto" width="200" height="200"/>
+              </ion-item>
+          </div> 
+  
+          <div style="font-size: 20px; padding-top: 20px; text-align: center; color: white;">
+                 {{usuarioLogado?.nome}}<br/>
+                 {{usuarioLogado?.email}}
+              </div>
+
+        </section>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" 
+            lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+
+           
+          
+
+          </ion-menu-toggle>
+
+         
+           <ion-item class="selected" tap (click)="logOut()" lines="none">
+              <ion-icon slot="start" name="power"> </ion-icon>
+              <ion-label>Sair</ion-label>
+            </ion-item>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-router-outlet></ion-router-outlet>
+
+</ion-app>

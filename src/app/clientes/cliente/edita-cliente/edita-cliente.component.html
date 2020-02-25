@@ -1,0 +1,58 @@
+<ion-card>
+  <ion-card-header>
+    Dados do cliente    
+  </ion-card-header>
+  <ion-card-content>
+     <form [formGroup]="clientForm">
+
+      <!-- <ion-row> -->
+
+        <ion-row>
+    
+    <mat-form-field style="width: 100%;">
+      <input matInput placeholder="Nome" formControlName="nome">
+    </mat-form-field>
+</ion-row>
+
+    <mat-form-field>
+      <input matInput placeholder="Telefone" formControlName="telefone">
+    </mat-form-field>
+
+      <mat-form-field>
+      <input matInput placeholder="E-mail" formControlName="email">
+    </mat-form-field>
+
+      <mat-form-field>
+      <input matInput placeholder="Cep" formControlName="cep">
+    </mat-form-field>
+  
+      <mat-form-field>
+      <input matInput placeholder="Rua" formControlName="rua">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Bairro" formControlName="bairro">
+    </mat-form-field>
+          <mat-form-field>
+      <input matInput placeholder="Cidade" formControlName="cidade">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Estado" formControlName="estado">
+    </mat-form-field>
+
+
+<!-- </ion-row> -->
+  </form>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-content style="padding-top: 0px; padding-bottom: 0px; ">
+    <ion-item (click)="salvar()">
+<label>Editar cliente</label><ion-note slot="end">
+  <ion-icon style="font-size: 20px;" name="build-outline"></ion-icon> </ion-note>
+      <br/>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
