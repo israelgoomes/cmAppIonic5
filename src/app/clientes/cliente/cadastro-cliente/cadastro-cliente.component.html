@@ -1,0 +1,57 @@
+<ion-card>
+  <ion-card-header>
+    Dados do cliente    
+  </ion-card-header>
+  <ion-card-content>
+     <form [formGroup]="clientForm">
+
+    
+    <mat-form-field style="width: 100%;">
+      <input matInput placeholder="Nome" formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Telefone" formControlName="tel">
+    </mat-form-field>
+
+      <mat-form-field>
+      <input matInput placeholder="E-mail" formControlName="email">
+    </mat-form-field>
+
+      <mat-form-field>
+      <input matInput placeholder="Cep" formControlName="cep">
+    </mat-form-field>
+  
+      <mat-form-field>
+      <input matInput placeholder="Rua" formControlName="endereco">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Bairro" formControlName="bairro">
+    </mat-form-field>
+          <mat-form-field>
+      <input matInput placeholder="Cidade" formControlName="cidade">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Estado" formControlName="estado">
+    </mat-form-field>
+
+    <!-- <ion-icon *ngIf="!editable" style="float: left" (click)="edit()" name="settings-outline"></ion-icon>
+    <ion-icon *ngIf="editable" style="float: left" (click)="cancel()" name="close-circle-outline"></ion-icon>
+    <ion-icon *ngIf="!editable" style="float: right" (click)="delete()" name="trash"></ion-icon> -->
+
+    
+
+    <!-- <ion-button expand="full" fill="outline">Salvar Cliente</ion-button>  -->
+   </form>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+
+  <ion-card-content style="padding: 05px;">
+    <ion-button (click)="salvar()" [disabled]="!clientForm.valid" expand="block" fill="outline">Salvar Cliente</ion-button>
+  </ion-card-content>
+</ion-card>
+

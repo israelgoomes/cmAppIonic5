@@ -1,6 +1,14 @@
 ion-title{
 text-align: left !important;
 }
+
+mat-form-field{
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
 .toolbar-title{
     text-align: left !important;
 }
@@ -14,10 +22,7 @@ body{
     background-image: linear-gradient(to bottom, white, rgb(82, 127, 118)); 
 }
 ion-content{
-   // background-image: url(./../../assets/imgs/login.jpg);
-   background-image: linear-gradient(to bottom, white, #527F76) !important; 
-
-    background-size: cover;
+   --ion-background-color: linear-gradient(to bottom, white, #527F76) !important; ;
 
 }
 
@@ -50,4 +55,9 @@ img {
 }
 ion-label {
     //color: white !important;
+}
+
+ion-icon{
+    margin-top: 20px;
+    font-size: 20px;
 }

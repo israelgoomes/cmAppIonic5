@@ -73,9 +73,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         children: [{
           path: '',
           loadChildren: function loadChildren() {
-            return __webpack_require__.e(
+            return Promise.all(
             /*! import() | clientes-clientes-module */
-            "clientes-clientes-module").then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~clientes-clientes-module~clientes-modal-cadastro-cliente-modal-cadastro-cliente-module"), __webpack_require__.e("clientes-clientes-module")]).then(__webpack_require__.bind(null,
             /*! ../clientes/clientes.module */
             "./src/app/clientes/clientes.module.ts")).then(function (m) {
               return m.ClientesPageModule;
