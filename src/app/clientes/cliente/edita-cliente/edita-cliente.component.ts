@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ClienteModel } from '../../../models/cliente-model';
 import { ClienteService } from '../../../services/cliente-service/cliente.service';
 import { Router } from '@angular/router';
+import { RefreshPageService } from '../../../services/refresh-page.service';
 
 @Component({
   selector: 'app-edita-cliente',
@@ -17,7 +18,8 @@ export class EditaClienteComponent implements OnInit {
 
   constructor(private fb: FormBuilder, 
               private clienteSrvc: ClienteService,
-              private router: Router
+              private router: Router,
+              private refreshSrvc: RefreshPageService
             ) { }
 
   ngOnInit() {
@@ -39,7 +41,9 @@ export class EditaClienteComponent implements OnInit {
   salvar(){
     this.clienteSrvc.alterClient(this.clientForm.value, this.clientForm.get('_id').value)
     .subscribe(data =>{
-      this.router.navigate(['/tabs/tabs/clientes']);    })
+      this.router.navigate(['/tabs/clientes']);
+      this.refreshSrvc.refresh.emit();
+    })
     //console.log('Valor do formulário', this.clientForm.value);
   }
 

@@ -15,7 +15,7 @@
     float: left;
     height: 100px;
     background-image: linear-gradient(to bottom, white, #527F76); 
-    border-bottom-left-radius: 20px;
+    //border-bottom-left-radius: 20px;
     }
     
     #right {
@@ -25,13 +25,40 @@
         width: 70%;
         height: 100px;
         float: left;
-        border-bottom-right-radius: 20px;
+        //border-bottom-right-radius: 20px;
 
     }
 
-    #sec-logo{
-        background-image: linear-gradient(to bottom, white, #527F76); 
+    // #sec-logo{
+    //     background-image: linear-gradient(to bottom, white, #527F76); 
    
+    // }
+
+    section#sec-01{
+        margin-bottom: 30px;
+        text-align: center;
+        height: 80px;
+        //background-color: red;
+        background-image: linear-gradient(to bottom, white, #527F76); 
+    
+    }
+    
+    section#sec-02{
+        padding-top: 20px;
+        height: 86%;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+        background-color: white;
+    
+        
+    }
+
+    ion-content{
+        --ion-background-color: #527F76;
+      }
+
+      ion-card{
+        background-color: white;
     }
 
   

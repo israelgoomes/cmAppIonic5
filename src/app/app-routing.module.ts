@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes, CanActivate } from '@angular/router';
+import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule), canActivate: [AuthGuardService]
   },
   {
-    path: '',
+    path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'detalhe-cliente',
     loadChildren: () => import('./clientes/cliente/detalhe-cliente/detalhe-cliente.module').then( m => m.DetalheClientePageModule)
+  },
+  {
+    path: 'modal-cadastro-cliente',
+    loadChildren: () => import('./clientes/modal-cadastro-cliente/modal-cadastro-cliente.module').then( m => m.ModalCadastroClientePageModule)
   },
 ];
 @NgModule({

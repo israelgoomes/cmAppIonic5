@@ -1,3 +1,16 @@
 mat-form-field{
     width: 100%;
 }
+
+ion-card{
+    background-color: white;
+}
+
+ion-content{
+    --ion-background-color: white !important;
+  }
+
+  label{
+    color: black;
+    font-size: 16px;
+  }

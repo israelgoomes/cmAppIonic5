@@ -28,3 +28,29 @@
   button.button-native{
     border: none !important;
   }
+
+  section#sec-01{
+    margin-bottom: 30px;
+    text-align: center;
+    height: 35%;
+    //background-color: red;
+    background-image: linear-gradient(to bottom, white, #527F76); 
+
+}
+
+section#sec-02{
+    padding-top: 20px;
+    height: 65%;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    background-color: white;
+
+    
+}
+ion-content{
+  --ion-background-color: #527F76;
+}
+
+ion-item{
+  background-color: white;
+}

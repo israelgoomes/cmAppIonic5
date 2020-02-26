@@ -18,11 +18,6 @@ export class LoginPage implements OnInit {
                ) { }
 
   ngOnInit() {
-    console.log('usuario', localStorage.getItem(configHelper.storageKeys.user))
-    if(localStorage.getItem(configHelper.storageKeys.user)){
-      this.route.navigate(['/tabs/tabs/clientes'])
-
-    }
   }
 
    login(){
@@ -30,7 +25,7 @@ export class LoginPage implements OnInit {
     this.loginSrvc.authenticate(this.form.email, this.form.senha).subscribe(data=>{
       console.log('token enviado', data.token)
       this.loginSrvc.registerLogin(data);
-      this.route.navigate(['/tabs/tabs/clientes'])
+      this.route.navigate(['/tabs/clientes'])
     })
   }
 

@@ -17,6 +17,8 @@ import { ClientesPage } from './clientes.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClienteComponent } from './cliente/cliente.component';
 import { HeaderComponent } from '../header/header.component';
+import { ModalCadastroClientePage } from './modal-cadastro-cliente/modal-cadastro-cliente.page';
+import { ModalCadastroClientePageModule } from './modal-cadastro-cliente/modal-cadastro-cliente.module';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { HeaderComponent } from '../header/header.component';
     MatCardModule,
     IonicModule,
     ClientesPageRoutingModule,
-    ExploreContainerComponentModule
+    ExploreContainerComponentModule,
+    ModalCadastroClientePageModule
   ],
   declarations: [ClientesPage, ClienteComponent, HeaderComponent]
 })
