@@ -548,7 +548,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ClientesPage =
     /*#__PURE__*/
     function () {
-      function ClientesPage(clienteSrvc, ngxService, refreshSrvc, modalCtrl, spinnerSrvc, loadingCtrl) {
+      function ClientesPage(clienteSrvc, ngxService, refreshSrvc, modalCtrl, spinnerSrvc, loadingCtrl, menuCtrl) {
         _classCallCheck(this, ClientesPage);
 
         this.clienteSrvc = clienteSrvc;
@@ -557,6 +557,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.modalCtrl = modalCtrl;
         this.spinnerSrvc = spinnerSrvc;
         this.loadingCtrl = loadingCtrl;
+        this.menuCtrl = menuCtrl;
         this.clientes = [];
         this.ionViewWillEnter();
       }
@@ -570,6 +571,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var userData = JSON.parse(localStorage.getItem(_configHelper__WEBPACK_IMPORTED_MODULE_3__["configHelper"].storageKeys.user));
           this.clienteSrvc.getClientsByIdUser(userData._id).subscribe(function (clientes) {
             _this.clientes = clientes;
+            console.log('Teste de reload');
 
             _this.spinnerSrvc.hide();
           });
@@ -633,6 +635,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__["SpinnerService"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["MenuController"]
       }];
     };
 
@@ -644,7 +648,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./clientes.page.scss */
       "./src/app/clientes/clientes.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_cliente_service_cliente_service__WEBPACK_IMPORTED_MODULE_2__["ClienteService"], ngx_ui_loader__WEBPACK_IMPORTED_MODULE_4__["NgxUiLoaderService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_5__["RefreshPageService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ModalController"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__["SpinnerService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"]])], ClientesPage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_cliente_service_cliente_service__WEBPACK_IMPORTED_MODULE_2__["ClienteService"], ngx_ui_loader__WEBPACK_IMPORTED_MODULE_4__["NgxUiLoaderService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_5__["RefreshPageService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ModalController"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__["SpinnerService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["MenuController"]])], ClientesPage);
     /***/
   },
 

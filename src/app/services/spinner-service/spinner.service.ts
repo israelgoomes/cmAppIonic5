@@ -6,7 +6,6 @@ import { LoadingController } from '@ionic/angular';
 })
 export class SpinnerService {
   isLoading = false;
-   private spinner: any = null;
   constructor(public loading: LoadingController) { }
 
   // async show() {

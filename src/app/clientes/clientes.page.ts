@@ -5,7 +5,7 @@ import { ClienteModel } from '../models/cliente-model';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { FormGroup, FormControl } from '@angular/forms';
 import { RefreshPageService } from '../services/refresh-page.service';
-import { ModalController, LoadingController } from '@ionic/angular';
+import { ModalController, LoadingController, MenuController } from '@ionic/angular';
 import { ModalCadastroClientePage } from './modal-cadastro-cliente/modal-cadastro-cliente.page';
 import { SpinnerService } from '../services/spinner-service/spinner.service';
 
@@ -23,7 +23,8 @@ export class ClientesPage implements OnInit {
     private refreshSrvc: RefreshPageService,
     private modalCtrl: ModalController,
     private spinnerSrvc: SpinnerService,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private menuCtrl: MenuController
   ) {
     this.ionViewWillEnter();
   }
@@ -37,6 +38,7 @@ export class ClientesPage implements OnInit {
 
     this.clienteSrvc.getClientsByIdUser(userData._id).subscribe(clientes => {
       this.clientes = clientes;
+      console.log('Teste de reload')
       this.spinnerSrvc.hide();
     });
   }
