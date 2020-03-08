@@ -34,7 +34,7 @@ export class ClientesPage implements OnInit {
     const userData = JSON.parse(
       localStorage.getItem(configHelper.storageKeys.user)
     );
-
+    this.spinnerSrvc.show();
     this.clienteSrvc.getClientsByIdUser(userData._id).subscribe(clientes => {
       this.clientes = clientes;
       this.spinnerSrvc.hide();
