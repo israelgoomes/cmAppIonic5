@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login-service/login.service';
 import { Router } from '@angular/router';
 import { configHelper } from '../configHelper';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SpinnerService } from '../services/spinner-service/spinner.service';
+import { RefreshPageService } from '../services/refresh-page.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,10 @@ export class LoginPage implements OnInit {
     public loginSrvc: LoginService,
     private route: Router,
     private navCtrl: NavController,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private menuCtrl: MenuController,
+    private spinnerSrvc: SpinnerService,
+    private refreshSrvc: RefreshPageService
   ) {}
 
   ngOnInit() {
@@ -37,11 +42,16 @@ export class LoginPage implements OnInit {
         console.log('token enviado', data.token);
         this.loginSrvc.registerLogin(data);
         this.route.navigate(['/tabs/clientes']);
+        this.refreshSrvc.newUser.emit();
+        this.spinnerSrvc.hide();
       });
   }
 
   cadastroUser() {
     // this.navCtrl.setRoot('CadastroUserPage')
+  }
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
   }
 
   visiblePassword() {

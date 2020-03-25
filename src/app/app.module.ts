@@ -20,6 +20,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { CommonModule } from '@angular/common';
 
 
 const configSpinner: NgxUiLoaderConfig ={
@@ -42,6 +44,7 @@ const configSpinner: NgxUiLoaderConfig ={
   entryComponents: [],
   imports: [
     BrowserModule, 
+    CommonModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,

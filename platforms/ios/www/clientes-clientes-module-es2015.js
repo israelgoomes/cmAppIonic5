@@ -317,13 +317,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ClientesPage = class ClientesPage {
-    constructor(clienteSrvc, ngxService, refreshSrvc, modalCtrl, spinnerSrvc, loadingCtrl) {
+    constructor(clienteSrvc, ngxService, refreshSrvc, modalCtrl, spinnerSrvc, loadingCtrl, menuCtrl) {
         this.clienteSrvc = clienteSrvc;
         this.ngxService = ngxService;
         this.refreshSrvc = refreshSrvc;
         this.modalCtrl = modalCtrl;
         this.spinnerSrvc = spinnerSrvc;
         this.loadingCtrl = loadingCtrl;
+        this.menuCtrl = menuCtrl;
         this.clientes = [];
         this.ionViewWillEnter();
     }
@@ -333,6 +334,7 @@ let ClientesPage = class ClientesPage {
         this.spinnerSrvc.show();
         this.clienteSrvc.getClientsByIdUser(userData._id).subscribe(clientes => {
             this.clientes = clientes;
+            console.log('Teste de reload');
             this.spinnerSrvc.hide();
         });
     }
@@ -356,7 +358,8 @@ ClientesPage.ctorParameters = () => [
     { type: _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_5__["RefreshPageService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ModalController"] },
     { type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__["SpinnerService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["MenuController"] }
 ];
 ClientesPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -369,7 +372,8 @@ ClientesPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_5__["RefreshPageService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ModalController"],
         _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__["SpinnerService"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"]])
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["MenuController"]])
 ], ClientesPage);
 
 

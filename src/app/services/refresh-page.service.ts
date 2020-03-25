@@ -5,5 +5,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 })
 export class RefreshPageService {
   refresh = new EventEmitter();
+  newUser = new EventEmitter();
   constructor() { }
 }

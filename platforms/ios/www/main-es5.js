@@ -166,7 +166,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app>\n    <ion-menu side=\"start\" contentId=\"main-content\" type=\"overlay\">\n      <ion-content>\n                  <section id=\"sec-01\">\n                    \n            <div id=\"picture-position\">\n              <ion-item class=\"circle\">\n                  <img [src]=\"usuarioLogado?.foto\" width=\"200\" height=\"200\"/>\n              </ion-item>\n          </div> \n  \n          <div style=\"font-size: 20px; padding-top: 20px; text-align: center; color: white;\">\n                 {{usuarioLogado?.nome}}<br/>\n                 {{usuarioLogado?.email}}\n              </div>\n\n        </section>\n\n        <section id=\"sec-02\">\n          <!-- <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\"> -->\n\n            <!-- <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" \n            lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item> -->\n\n           \n            \n          \n\n          <!-- </ion-menu-toggle> -->\n\n         \n           <!-- <ion-item class=\"selected\" tap (click)=\"logOut()\" lines=\"none\">\n              <ion-icon slot=\"start\" name=\"power\"> </ion-icon>\n              <ion-label>Sair</ion-label>\n            </ion-item> -->\n\n          </section>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n    <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n";
+    __webpack_exports__["default"] = "<ion-app>\n    <ion-menu side=\"start\" contentId=\"main-content\" type=\"overlay\">\n      <ion-content>\n                  <section id=\"sec-01\">\n                    \n            <div id=\"picture-position\">\n              <ion-item class=\"circle\">\n                  <img [src]=\"usuarioLogado?.foto\" width=\"200\" height=\"200\"/>\n              </ion-item>\n          </div> \n  \n          <div style=\"font-size: 20px; padding-top: 20px; text-align: center; color: white;\">\n                 {{usuarioLogado?.nome}}<br/>\n                 {{usuarioLogado?.email}}\n              </div>\n\n        </section>\n\n        <section id=\"sec-02\">\n          <!-- <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\"> -->\n\n            <!-- <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" \n            lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item> -->\n\n           \n            <ion-button style=\"border: none;\" (click)=\"sair()\" fill=\"clear\">\n              Sair <ion-icon name=\"power-outline\"></ion-icon>          \n            </ion-button>  \n          \n\n          <!-- </ion-menu-toggle> -->\n\n         \n           <!-- <ion-item class=\"selected\" tap (click)=\"logOut()\" lines=\"none\">\n              <ion-icon slot=\"start\" name=\"power\"> </ion-icon>\n              <ion-label>Sair</ion-label>\n            </ion-item> -->\n\n          </section>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n    <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n";
     /***/
   },
 
@@ -948,17 +948,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _configHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./configHelper */
     "./src/app/configHelper.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./services/spinner-service/spinner.service */
+    "./src/app/services/spinner-service/spinner.service.ts");
+    /* harmony import */
+
+
+    var _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./services/refresh-page.service */
+    "./src/app/services/refresh-page.service.ts");
 
     var AppComponent =
     /*#__PURE__*/
     function () {
-      function AppComponent(platform, splashScreen, statusBar, userSrvc) {
+      function AppComponent(platform, splashScreen, statusBar, userSrvc, route, spinnerSrvc, refreshSrvc, menuCtrl) {
         _classCallCheck(this, AppComponent);
 
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.userSrvc = userSrvc;
+        this.route = route;
+        this.spinnerSrvc = spinnerSrvc;
+        this.refreshSrvc = refreshSrvc;
+        this.menuCtrl = menuCtrl;
         this.selectedIndex = 0;
         this.appPages = [{
           title: 'Configurações',
@@ -985,17 +1007,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             _this.splashScreen.hide();
           });
+          this.refreshSrvc.newUser.subscribe(function () {
+            _this.ngOnInit();
+          });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this2 = this;
-
-          var user = JSON.parse(localStorage.getItem(_configHelper__WEBPACK_IMPORTED_MODULE_6__["configHelper"].storageKeys.user));
-          this.userSrvc.getByIdUser(user._id).subscribe(function (data) {
-            console.log('Dados do usuario logado', data);
-            _this2.usuarioLogado = data;
-          });
+          console.log('Teste componente *******************************');
+          this.menuCtrl.enable(true);
           var path = window.location.pathname.split('folder/')[1];
 
           if (path !== undefined) {
@@ -1007,11 +1027,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.atualizaUser();
         }
       }, {
-        key: "logOut",
-        value: function logOut() {}
+        key: "sair",
+        value: function sair() {
+          localStorage.removeItem(_configHelper__WEBPACK_IMPORTED_MODULE_6__["configHelper"].storageKeys.user);
+          localStorage.removeItem(_configHelper__WEBPACK_IMPORTED_MODULE_6__["configHelper"].storageKeys.token);
+          this.route.navigate(['login']);
+        }
       }, {
         key: "atualizaUser",
-        value: function atualizaUser() {}
+        value: function atualizaUser() {
+          var _this2 = this;
+
+          var user = JSON.parse(localStorage.getItem(_configHelper__WEBPACK_IMPORTED_MODULE_6__["configHelper"].storageKeys.user));
+          this.userSrvc.getByIdUser(user._id).subscribe(function (data) {
+            console.log('Dados do usuario logado', data);
+            _this2.usuarioLogado = data;
+
+            _this2.spinnerSrvc.hide();
+          });
+        }
       }]);
 
       return AppComponent;
@@ -1026,6 +1060,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]
       }, {
         type: _services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_5__["UsuarioService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
+      }, {
+        type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__["SpinnerService"]
+      }, {
+        type: _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_9__["RefreshPageService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]
       }];
     };
 
@@ -1037,7 +1079,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./app.component.scss */
       "./src/app/app.component.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_5__["UsuarioService"]])], AppComponent);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_5__["UsuarioService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_8__["SpinnerService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_9__["RefreshPageService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]])], AppComponent);
     /***/
   },
 
@@ -1498,6 +1540,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./src/app/services/refresh-page.service.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/services/refresh-page.service.ts ***!
+    \**************************************************/
+
+  /*! exports provided: RefreshPageService */
+
+  /***/
+  function srcAppServicesRefreshPageServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RefreshPageService", function () {
+      return RefreshPageService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var RefreshPageService = function RefreshPageService() {
+      _classCallCheck(this, RefreshPageService);
+
+      this.refresh = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+      this.newUser = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    };
+
+    RefreshPageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])], RefreshPageService);
+    /***/
+  },
+
+  /***/
   "./src/app/services/spinner-service/spinner.service.ts":
   /*!*************************************************************!*\
     !*** ./src/app/services/spinner-service/spinner.service.ts ***!
@@ -1543,7 +1630,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.loading = loading;
         this.isLoading = false;
-        this.spinner = null;
       } // async show() {
       //    this.spinner = await this.loading.create({
       //     message: 'Carregando...',

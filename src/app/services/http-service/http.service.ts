@@ -34,7 +34,7 @@ export class HttpService {
 
   public get(url): Observable<any> {
     const header = this.createHeader();
-    //this.spinnerSrvc.show();
+    // this.spinnerSrvc.show();
     return this.httpClient.get(url, { headers: header });
   }
 

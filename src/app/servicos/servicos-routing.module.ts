@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: ServicosPage
+  },
+  {
+    path: 'modal-cadastri-projeto',
+    loadChildren: () => import('./modal-cadastri-projeto/modal-cadastri-projeto.module').then( m => m.ModalCadastriProjetoPageModule)
+  },
+  {
+    path: 'cadastro-pojeto',
+    loadChildren: () => import('./servico/cadastro-pojeto/cadastro-pojeto.module').then( m => m.CadastroPojetoPageModule)
   }
 ];
 

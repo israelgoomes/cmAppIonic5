@@ -245,17 +245,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../services/spinner-service/spinner.service */
+    "./src/app/services/spinner-service/spinner.service.ts");
+    /* harmony import */
+
+
+    var _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../services/refresh-page.service */
+    "./src/app/services/refresh-page.service.ts");
 
     var LoginPage =
     /*#__PURE__*/
     function () {
-      function LoginPage(loginSrvc, route, navCtrl, fb) {
+      function LoginPage(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc) {
         _classCallCheck(this, LoginPage);
 
         this.loginSrvc = loginSrvc;
         this.route = route;
         this.navCtrl = navCtrl;
         this.fb = fb;
+        this.menuCtrl = menuCtrl;
+        this.spinnerSrvc = spinnerSrvc;
+        this.refreshSrvc = refreshSrvc;
         this.isVisiblePassword = false;
       }
 
@@ -278,11 +293,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.loginSrvc.registerLogin(data);
 
             _this.route.navigate(['/tabs/clientes']);
+
+            _this.refreshSrvc.newUser.emit();
+
+            _this.spinnerSrvc.hide();
           });
         }
       }, {
         key: "cadastroUser",
         value: function cadastroUser() {// this.navCtrl.setRoot('CadastroUserPage')
+        }
+      }, {
+        key: "ionViewWillEnter",
+        value: function ionViewWillEnter() {
+          this.menuCtrl.enable(false);
         }
       }, {
         key: "visiblePassword",
@@ -303,6 +327,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"]
       }, {
         type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["MenuController"]
+      }, {
+        type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"]
+      }, {
+        type: _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_7__["RefreshPageService"]
       }];
     };
 
@@ -314,7 +344,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./login.page.scss */
       "./src/app/login/login.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])], LoginPage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["MenuController"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_7__["RefreshPageService"]])], LoginPage);
     /***/
   },
 

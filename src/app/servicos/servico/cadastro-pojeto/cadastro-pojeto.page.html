@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cadastroPojeto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<form [formGroup]="formGroup">
+
+  <mat-form-field style="width: 100%;">
+    <input matInput placeholder="Nome" formControlName="tituloProjeto">
+  </mat-form-field>
+  
+  <mat-form-field style="width: 100%;">
+    <input matInput placeholder="Nome" formControlName="descricaoProjeto">
+  </mat-form-field>
+
+
+  <!-- <app-cm-select formControlName="option" [lista]="listaClientes" view="nome" valueAtr="_id"></app-cm-select> -->
+  
+<button ion-button (click)="event()" ></button>
+
+</form>
+
+</ion-content>

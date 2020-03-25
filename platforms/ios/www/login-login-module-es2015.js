@@ -128,6 +128,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/spinner-service/spinner.service */ "./src/app/services/spinner-service/spinner.service.ts");
+/* harmony import */ var _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/refresh-page.service */ "./src/app/services/refresh-page.service.ts");
+
+
 
 
 
@@ -135,11 +139,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginPage = class LoginPage {
-    constructor(loginSrvc, route, navCtrl, fb) {
+    constructor(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc) {
         this.loginSrvc = loginSrvc;
         this.route = route;
         this.navCtrl = navCtrl;
         this.fb = fb;
+        this.menuCtrl = menuCtrl;
+        this.spinnerSrvc = spinnerSrvc;
+        this.refreshSrvc = refreshSrvc;
         this.isVisiblePassword = false;
     }
     ngOnInit() {
@@ -155,10 +162,15 @@ let LoginPage = class LoginPage {
             console.log('token enviado', data.token);
             this.loginSrvc.registerLogin(data);
             this.route.navigate(['/tabs/clientes']);
+            this.refreshSrvc.newUser.emit();
+            this.spinnerSrvc.hide();
         });
     }
     cadastroUser() {
         // this.navCtrl.setRoot('CadastroUserPage')
+    }
+    ionViewWillEnter() {
+        this.menuCtrl.enable(false);
     }
     visiblePassword() {
         this.isVisiblePassword = !this.isVisiblePassword;
@@ -168,7 +180,10 @@ LoginPage.ctorParameters = () => [
     { type: _services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["MenuController"] },
+    { type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"] },
+    { type: _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_7__["RefreshPageService"] }
 ];
 LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -179,7 +194,10 @@ LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])
+        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["MenuController"],
+        _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"],
+        _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_7__["RefreshPageService"]])
 ], LoginPage);
 
 
