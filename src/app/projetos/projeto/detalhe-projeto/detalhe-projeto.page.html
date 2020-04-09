@@ -1,0 +1,33 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/detalhe-cliente"></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <section id="sec-01">
+    <div id="left">
+      <div class="circle" (click)="changeColor()" [ngStyle]="{color: changeColorOptions[colorOption] }" style="text-align: center;">
+        <p
+          style="margin-left: auto; margin-right: auto; font-size: 25px;" [ngStyle]="{'color':colors[color]}">
+          {{iniciais}}
+        </p>
+      </div>
+    </div>
+
+    <div id="right">
+      <div class="titulo-principal" style="margin-top: 07px; text-align: left;">
+        <!-- {{project.tituloProjeto}}<br />
+        {{project.cliente.nome}}<br />
+        {{project.cliente.email}}<br /> -->
+      </div>
+    </div>
+  </section>
+
+  <section id="sec-02">
+    <div>
+      &nbsp;
+      <app-edita-projeto [projeto]="project"></app-edita-projeto>
+    </div>
+  </section>
+</ion-content>

@@ -25,7 +25,7 @@ change() {
   this.getChange.emit(this.clientForm.value);
 }
 
-teste() {
+detalheCliente() {
   const navigationExtras: NavigationExtras = {
     state: {
       valorParaEnviar: this.cliente

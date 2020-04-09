@@ -1,10 +1,8 @@
-<form [formGroup]="formGroup">
-<mat-form-field>
-  <mat-label>Favorite food</mat-label>
-  <mat-select>
+<mat-form-field [ngStyle]="{'width': width}">
+  <mat-label>{{label}}</mat-label>
+  <mat-select [(value)]="selected" [disabled]="disabled.value">
     <mat-option *ngFor="let l of lista" (click)="setValue(l[valueAtr])" [value]="l[valueAtr]">
       {{l[view]}}
     </mat-option>
   </mat-select>
 </mat-form-field>
-</form>

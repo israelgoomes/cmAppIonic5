@@ -2,6 +2,7 @@ import { ClientesPageModule } from './../clientes/clientes.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { ProjetosPageModule } from '../projetos/projetos.module';
 
 
 const routes: Routes = [
@@ -20,12 +21,12 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'servicos',
+        path: 'projetos',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../servicos/servicos.module').then(m => m.ServicosPageModule)
+              import('../projetos/projetos.module').then(m => m.ProjetosPageModule)
           }
         ]
       },

@@ -1,0 +1,100 @@
+<ion-card>
+  <form [formGroup]="projectForm">
+    <mat-form-field>
+      <input matInput placeholder="Projeto" formControlName="tituloProjeto" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Descrição"
+        formControlName="descricaoProjeto"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Valor" formControlName="preco" />
+    </mat-form-field>
+
+    <ion-card>
+      <ion-card-header>
+        Cliente
+      </ion-card-header>
+
+      <ion-row>
+        <ion-col size="6">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Cliente"
+              readonly
+              formControlName="nmCliente"
+            />
+          </mat-form-field>
+        </ion-col>
+
+        <ion-col size="6">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="E-mail"
+              readonly
+              formControlName="emailCliente"
+            />
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+
+      <hr />
+
+      <ion-button *ngIf="!hasClient && editable" (click)="alterarCliente()" fill="outline"
+        >Alterar Cliente</ion-button
+      >
+      <ion-button *ngIf="hasClient" (click)="alterarCliente()" fill="outline"
+        >Cancelar</ion-button
+      >
+    </ion-card>
+
+    <app-cm-select
+      isDisabled="false"
+      *ngIf="hasClient"
+      label="Cliente"
+      width="95%"
+      formControlName="cliente"
+      [selected]="projectForm.get('cliente').value"
+      [lista]="listaClientes"
+      view="nome"
+      valueAtr="_id"
+    >
+    </app-cm-select>
+
+    <ion-card>
+      <ion-icon
+        *ngIf="!editable"
+        style="float: left"
+        (click)="edit()"
+        name="settings-outline"
+      ></ion-icon>
+      <ion-icon
+        *ngIf="editable"
+        style="float: left"
+        (click)="cancel()"
+        name="close-circle-outline"
+      ></ion-icon>
+      <ion-icon
+        *ngIf="!editable"
+        style="float: right"
+        (click)="delete()"
+        name="trash"
+      ></ion-icon>
+    </ion-card>
+
+    <ion-button
+      *ngIf="editable"
+      [disabled]="projectForm.valid"
+      (click)="salvar()"
+      fill="outline"
+      >Salvar</ion-button
+    >
+  </form>
+</ion-card>

@@ -1,7 +1,7 @@
 import { HeaderComponent } from './../header/header.component';
 import {NgModule} from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { ServicoComponent } from '../servicos/servico/servico.component';
+import { ServicoComponent } from '../projetos/projeto/projeto.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
@@ -13,10 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { CmSelectComponent } from '../components/cm-select/cm-select.component';
+import { CadastroProjetoComponent } from '../projetos/projeto/cadastro-projeto/cadastro-projeto.component';
 
 
 @NgModule({
-    declarations: [HeaderComponent, ServicoComponent, CmSelectComponent],
+    declarations: [HeaderComponent, ServicoComponent, CmSelectComponent, CadastroProjetoComponent],
     imports: [IonicModule.forRoot(),
         CommonModule,
         FormsModule,
@@ -28,9 +29,12 @@ import { CmSelectComponent } from '../components/cm-select/cm-select.component';
         MatIconModule,
         MatButtonModule,
         MatFormFieldModule,
-        MatCardModule, ],
+        MatCardModule,
+      //  CadastroPojetoPageModule
+     ],
     exports: [HeaderComponent, 
         ServicoComponent,
+        CmSelectComponent,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
@@ -41,7 +45,10 @@ import { CmSelectComponent } from '../components/cm-select/cm-select.component';
         MatIconModule,
         MatButtonModule,
         MatFormFieldModule,
-        MatCardModule,]
+        MatCardModule,
+        CadastroProjetoComponent
+    //    CadastroPojetoPageModule
+    ]
 })
 
 export class SharedModule {}

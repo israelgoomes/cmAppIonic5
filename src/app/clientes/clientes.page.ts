@@ -24,12 +24,9 @@ export class ClientesPage implements OnInit {
   formGroup: FormGroup;
   constructor(
     private clienteSrvc: ClienteService,
-    private ngxService: NgxUiLoaderService,
     private refreshSrvc: RefreshPageService,
     private modalCtrl: ModalController,
     private spinnerSrvc: SpinnerService,
-    private loadingCtrl: LoadingController,
-    private menuCtrl: MenuController,
     private fb: FormBuilder
   ) {
     this.ionViewWillEnter();
@@ -57,7 +54,7 @@ export class ClientesPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.refreshSrvc.refresh.subscribe(() => {
+    this.refreshSrvc.refreshClient.subscribe(() => {
       this.ngOnInit();
     });
   }

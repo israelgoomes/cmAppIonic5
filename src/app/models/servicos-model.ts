@@ -1,8 +1,8 @@
 import { UsuarioModel } from './usuario-model';
 import { ClienteModel } from 'src/app/models/cliente-model';
-export class ServicoModel{
+export class ProjetoModel{
 
-
+    _id: string;
     tituloProjeto: string;
     descricaoProjeto: string;
     preco: string;

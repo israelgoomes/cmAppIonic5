@@ -17,11 +17,20 @@ const routes: Routes = [
   },
   {
     path: 'modal-cadastro-cliente',
-    loadChildren: () => import('./clientes/modal-cadastro-cliente/modal-cadastro-cliente.module').then( m => m.ModalCadastroClientePageModule)
+    loadChildren: () => import('./clientes/modal-cadastro-cliente/modal-cadastro-cliente.module')
+    .then( m => m.ModalCadastroClientePageModule)
   },
   {
     path: 'configuracao',
     loadChildren: () => import('./configuracao/configuracao.module').then( m => m.ConfiguracaoPageModule)
+  },
+  {
+    path: 'projetos',
+    loadChildren: () => import('./projetos/projetos.module').then( m => m.ProjetosPageModule)
+  },
+  {
+  path: 'detalhe-projeto',
+  loadChildren: () => import('./projetos/projeto/detalhe-projeto/detalhe-projeto.module').then( m => m.DetalheProjetoPageModule)
   },
 ];
 @NgModule({

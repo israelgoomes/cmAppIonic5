@@ -37,6 +37,22 @@
       <input matInput placeholder="Estado" formControlName="estado">
     </mat-form-field>
 
+<h2>Projetos</h2>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let item of projectList">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Projeto: {{item.tituloProjeto}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p> Descricao: {{item.descricaoProjeto}}</p> <br/>
+    <p> Preco: {{item.preco}}</p> <br/>
+    <p> Data: {{item.data}}</p> <br/>
+  </mat-expansion-panel>
+</mat-accordion>
+    
+
     <ion-icon *ngIf="!editable" style="float: left" (click)="edit()" name="settings-outline"></ion-icon>
     <ion-icon *ngIf="editable" style="float: left" (click)="cancel()" name="close-circle-outline"></ion-icon>
     <ion-icon *ngIf="!editable" style="float: right" (click)="delete()" name="trash"></ion-icon>

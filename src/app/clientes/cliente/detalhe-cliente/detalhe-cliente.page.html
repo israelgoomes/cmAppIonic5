@@ -1,37 +1,24 @@
-<!-- <ion-header>
-  <ion-navbar >
-    <ion-title>title</ion-title>
-  </ion-navbar>
-  <ion-back-button defaultHref="/detalhe-cliente"></ion-back-button>
 
-</ion-header> -->
-
-<!-- <ion-header [translucent]="true"> -->
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/detalhe-cliente"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
-<!-- </ion-header> -->
-
 
 <ion-content>
 
   <section id="sec-01" >
 
   <div id="left">
-    <div class="circle" style="text-align: center; color: white;">
-      <p style="margin-left: auto; margin-right: auto; font-size: 25px; color: blue;">
+    <div class="circle" (click)="changeColor()" [ngStyle]="{color: changeColorOptions[colorOption] }" style="text-align: center;">
+      <p style="margin-left: auto; margin-right: auto; font-size: 25px;" [ngStyle]="{'color':colors[color]}">
       {{iniciais}}
     </p>   
     </div>
   </div>  
 
   <div id="right">
-    <div style="margin-top: 07px; text-align: left;">
-{{cliente.nome}}<br/>
-{{cliente.email}}<br/>
-{{cliente.tel}}<br/>
+    <div class="titulo-principal" style="margin-top: 07px; text-align: left;">
 </div>
   </div>
 

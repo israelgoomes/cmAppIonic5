@@ -1,0 +1,92 @@
+.circle {
+    text-align: center;
+    background-color: black;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 05px;
+    padding-left: 0px !important;
+  }
+
+  #left {
+    border: none;
+    width: 28%;
+    float: left;
+    height: 100px;
+    background-image: linear-gradient(to bottom, white, #527F76); 
+    //border-bottom-left-radius: 20px;
+    }
+    
+    #right {
+        border: none;
+        text-align: center;
+        background-image: linear-gradient(to bottom, white, #527F76); 
+       // padding-top: 30px;
+        width: 72%;
+        height: 100px;
+        float: left;
+        //border-bottom-right-radius: 20px;
+
+    }
+
+    // #sec-logo{
+    //     background-image: linear-gradient(to bottom, white, #527F76); 
+   
+    // }
+
+    section#sec-01{
+        margin-bottom: 30px;
+        text-align: center;
+        height: 80px;
+        //background-color: red;
+        background-image: linear-gradient(to bottom, white, #527F76); 
+    
+    }
+    
+    section#sec-02{
+        padding-top: 20px;
+        height: 100%;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+        background-color: white;
+    
+        
+    }
+
+    ion-content{
+        --ion-background-color: #527F76;
+      }
+
+      ion-card{
+        background-color: white;
+    }
+
+    .titulo-principal{
+        max-width: 480px;
+        text-align: center;
+        margin: 60px auto;
+        font-family:'Courier New', Courier, monospace;
+        color: black;
+    }
+    .titulo-principal:after{
+     content: '|';
+     margin-left: 5px;
+     opacity: 1;
+     animation: pisca .7s infinite;
+    }
+    /* Animação aplicada ao content referente a classe *.titulo-principal* resultando num efeito de cursor piscando. */
+    
+    @keyframes pisca{
+        0%, 100%{
+            opacity: 1;
+        }
+        50%{
+            opacity: 0;
+        }
+    }
+
+  
+
+ 

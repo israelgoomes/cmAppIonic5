@@ -1,0 +1,33 @@
+<ion-card style="background-color: white;">
+  <ion-card-header>
+    Cadastro de Projeto
+  </ion-card-header>
+<form [formGroup]="projectForm">
+
+  <mat-form-field >
+    <input matInput placeholder="Projeto" formControlName="tituloProjeto">
+  </mat-form-field>
+  
+  <mat-form-field >
+    <input matInput placeholder="Descrição" formControlName="descricaoProjeto">
+  </mat-form-field>
+
+  <mat-form-field >
+    <input matInput placeholder="Valor" formControlName="preco">
+  </mat-form-field>
+
+
+  <app-cm-select label="Cliente" width="95%" formControlName="cliente" [lista]="listaClientes" view="nome" valueAtr="_id"></app-cm-select>
+  
+</form>
+
+</ion-card>
+
+
+<ion-card>
+
+  <ion-card-content style="padding: 05px; background-color: white;">
+    <ion-button (click)="salvar()" [disabled]="!projectForm.valid" expand="block" fill="outline">Salvar Projeto</ion-button>
+  </ion-card-content>
+</ion-card>
+

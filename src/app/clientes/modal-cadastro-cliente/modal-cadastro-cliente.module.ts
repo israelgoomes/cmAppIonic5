@@ -29,6 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
     IonicModule,
     ModalCadastroClientePageRoutingModule
   ],
-  declarations: [ModalCadastroClientePage, CadastroClienteComponent]
+  declarations: [ModalCadastroClientePage, CadastroClienteComponent],
+  entryComponents: [ModalCadastroClientePage]
 })
 export class ModalCadastroClientePageModule {}

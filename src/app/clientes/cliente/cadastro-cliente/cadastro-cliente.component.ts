@@ -42,7 +42,7 @@ export class CadastroClienteComponent implements OnInit {
     console.log(this.clientForm.value)
     this.clienteSrvc.includesClient(this.clientForm.value).subscribe(() => {
       this.modalCtrl.dismiss();
-      this.refreshSrvc.refresh.emit();
+      this.refreshSrvc.refreshClient.emit();
       this.spinnerSrvc.hide();
     });
   }

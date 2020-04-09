@@ -8,6 +8,8 @@ import { AlertController } from '@ionic/angular';
 import { AlertService } from '../../../services/alert-service/alert.service';
 import { ThrowStmt } from '@angular/compiler';
 import { SpinnerService } from '../../../services/spinner-service/spinner.service';
+import { ProjetoService } from '../../../services/projeto-service/projeto.service';
+import { ProjetoModel } from '../../../models/servicos-model';
 
 @Component({
   selector: 'app-edita-cliente',
@@ -17,6 +19,7 @@ import { SpinnerService } from '../../../services/spinner-service/spinner.servic
 export class EditaClienteComponent implements OnInit {
   clientForm: FormGroup;
   editable = false;
+  projectList: Array<ProjetoModel> = []
   @Input() cliente: ClienteModel;
 
   constructor(
@@ -25,7 +28,8 @@ export class EditaClienteComponent implements OnInit {
     private router: Router,
     private refreshSrvc: RefreshPageService,
     private alertSrvc: AlertService,
-    private spinnerSrvc: SpinnerService
+    private spinnerSrvc: SpinnerService,
+    private projetoSrvc: ProjetoService
   ) {}
 
   ngOnInit() {
@@ -41,6 +45,12 @@ export class EditaClienteComponent implements OnInit {
       estado: this.cliente.estado
     });
     this.clientForm.disable();
+
+    this.projetoSrvc.projectByClient(this.cliente._id).subscribe(projects =>{
+      this.projectList = projects;
+      console.log('projetos do cliente', this.projectList)
+});
+
   }
 
   salvar() {
@@ -48,7 +58,7 @@ export class EditaClienteComponent implements OnInit {
       .alterClient(this.clientForm.value, this.clientForm.get('_id').value)
       .subscribe(data => {
         this.router.navigate(['/tabs/clientes']);
-        this.refreshSrvc.refresh.emit();
+        this.refreshSrvc.refreshClient.emit();
         this.spinnerSrvc.hide();
       });
     // console.log('Valor do formulário', this.clientForm.value);
@@ -78,7 +88,7 @@ export class EditaClienteComponent implements OnInit {
               2000,
               'top');
             this.router.navigate(['/tabs/clientes']);
-            this.refreshSrvc.refresh.emit();
+            this.refreshSrvc.refreshClient.emit();
             this.spinnerSrvc.hide();
           });
       }
