@@ -269,11 +269,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @ionic-native/android-fingerprint-auth/ngx */
     "./node_modules/@ionic-native/android-fingerprint-auth/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @ionic-native/fingerprint-aio/ngx */
+    "./node_modules/@ionic-native/fingerprint-aio/ngx/index.js");
 
     var LoginPage =
     /*#__PURE__*/
     function () {
-      function LoginPage(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth) {
+      function LoginPage(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth, faio) {
         _classCallCheck(this, LoginPage);
 
         this.loginSrvc = loginSrvc;
@@ -284,6 +290,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.spinnerSrvc = spinnerSrvc;
         this.refreshSrvc = refreshSrvc;
         this.androidFingerprintAuth = androidFingerprintAuth;
+        this.faio = faio;
         this.isVisiblePassword = false;
       }
 
@@ -291,6 +298,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "ngOnInit",
         value: function ngOnInit() {
           var _this = this;
+
+          this.faio.show({});
 
           if (localStorage.getItem(_configHelper__WEBPACK_IMPORTED_MODULE_4__["configHelper"].storageKeys.user)) {
             console.log('TESTE ********');
@@ -397,6 +406,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"]
       }, {
         type: _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"]
+      }, {
+        type: _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"]
       }];
     };
 
@@ -408,7 +419,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./login.page.scss */
       "./src/app/login/login.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"], _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"]])], LoginPage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"], _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"], _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"]])], LoginPage);
     /***/
   },
 

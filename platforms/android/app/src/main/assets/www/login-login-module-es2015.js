@@ -132,6 +132,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/spinner-service/spinner.service */ "./src/app/services/spinner-service/spinner.service.ts");
 /* harmony import */ var _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/refresh-page.service */ "./src/app/services/refresh-page.service.ts");
 /* harmony import */ var _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/android-fingerprint-auth/ngx */ "./node_modules/@ionic-native/android-fingerprint-auth/ngx/index.js");
+/* harmony import */ var _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/fingerprint-aio/ngx */ "./node_modules/@ionic-native/fingerprint-aio/ngx/index.js");
+
 
 
 
@@ -143,7 +145,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginPage = class LoginPage {
-    constructor(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth) {
+    constructor(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth, faio) {
         this.loginSrvc = loginSrvc;
         this.route = route;
         this.navCtrl = navCtrl;
@@ -152,9 +154,11 @@ let LoginPage = class LoginPage {
         this.spinnerSrvc = spinnerSrvc;
         this.refreshSrvc = refreshSrvc;
         this.androidFingerprintAuth = androidFingerprintAuth;
+        this.faio = faio;
         this.isVisiblePassword = false;
     }
     ngOnInit() {
+        this.faio.show({});
         if (localStorage.getItem(_configHelper__WEBPACK_IMPORTED_MODULE_4__["configHelper"].storageKeys.user)) {
             console.log('TESTE ********');
             this.androidFingerprintAuth
@@ -242,7 +246,8 @@ LoginPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"] },
     { type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"] },
     { type: _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"] },
-    { type: _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"] }
+    { type: _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"] },
+    { type: _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"] }
 ];
 LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -257,7 +262,8 @@ LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"],
         _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"],
         _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"],
-        _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"]])
+        _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"],
+        _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"]])
 ], LoginPage);
 
 

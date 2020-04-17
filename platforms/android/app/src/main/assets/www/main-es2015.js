@@ -438,7 +438,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n    <ion-menu side=\"start\" contentId=\"main-content\" type=\"overlay\">\n      <ion-content>\n                  <section id=\"sec-01\">\n                    \n            <div id=\"picture-position\">\n              <ion-item class=\"circle\">\n                  <img [src]=\"usuarioLogado?.foto\" width=\"200\" height=\"200\"/>\n              </ion-item>\n          </div> \n  \n          <div style=\"font-size: 20px; padding-top: 20px; text-align: center; color: white;\">\n                 {{usuarioLogado?.nome}}<br/>\n                 {{usuarioLogado?.email}}\n              </div>\n\n        </section>\n\n        <section id=\"sec-02\">\n          <!-- <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\"> -->\n\n            <!-- <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" \n            lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item> -->\n\n           \n            <ion-button style=\"border: none;\" routerLink=\"/configuracao\"  fill=\"clear\">\n              Settings <ion-icon name=\"power-outline\"></ion-icon>          \n            </ion-button> \n\n\n            <ion-button style=\"border: none;\" (click)=\"sair()\" fill=\"clear\">\n              Sair <ion-icon name=\"power-outline\"></ion-icon>          \n            </ion-button>  \n          \n\n          <!-- </ion-menu-toggle> -->\n\n         \n           <!-- <ion-item class=\"selected\" tap (click)=\"logOut()\" lines=\"none\">\n              <ion-icon slot=\"start\" name=\"power\"> </ion-icon>\n              <ion-label>Sair</ion-label>\n            </ion-item> -->\n\n          </section>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n    <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n    <ion-menu side=\"start\" contentId=\"main-content\" type=\"overlay\">\n      <ion-content>\n                  <section id=\"sec-01\">\n                    \n            <div id=\"picture-position\">\n              <ion-item class=\"circle\">\n                  <img [src]=\"usuarioLogado?.foto\" width=\"200\" height=\"200\"/>\n              </ion-item>\n          </div> \n  \n          <div style=\"font-size: 20px; padding-top: 20px; text-align: center; color: white;\">\n                 {{usuarioLogado?.nome}}<br/>\n                 {{usuarioLogado?.email}}\n              </div>\n\n        </section>\n\n        <section id=\"sec-02\">\n          <!-- <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\"> -->\n\n            <!-- <ion-item (click)=\"selectedIndex = i\" routerDirection=\"root\" [routerLink]=\"[p.url]\" \n            lines=\"none\" detail=\"false\" [class.selected]=\"selectedIndex == i\">\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\n              <ion-label>{{ p.title }}</ion-label>\n            </ion-item> -->\n\n           \n            <ion-button style=\"border: none;\" routerDirection=\"root\" routerLink=\"/configuracao\" routerLinkActive=\"active\" fill=\"clear\">\n              Settings <ion-icon name=\"power-outline\"></ion-icon>          \n            </ion-button> \n\n\n            <ion-button style=\"border: none;\" (click)=\"sair()\" fill=\"clear\">\n              Sair <ion-icon name=\"power-outline\"></ion-icon>          \n            </ion-button>  \n            <ion-button style=\"border: none;\" routerLink=\"/tabs/tabs/clientes\" fill=\"clear\">\n              back <ion-icon name=\"power-outline\"></ion-icon>          \n            </ion-button>  \n          \n\n          <!-- </ion-menu-toggle> -->\n\n         \n           <!-- <ion-item class=\"selected\" tap (click)=\"logOut()\" lines=\"none\">\n              <ion-icon slot=\"start\" name=\"power\"> </ion-icon>\n              <ion-label>Sair</ion-label>\n            </ion-item> -->\n\n          </section>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\n    <ion-router-outlet></ion-router-outlet>\n\n</ion-app>\n");
 
 /***/ }),
 
@@ -932,6 +932,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
 /* harmony import */ var _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/native-geocoder/ngx */ "./node_modules/@ionic-native/native-geocoder/ngx/index.js");
 /* harmony import */ var _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ionic-native/android-fingerprint-auth/ngx */ "./node_modules/@ionic-native/android-fingerprint-auth/ngx/index.js");
+/* harmony import */ var _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @ionic-native/fingerprint-aio/ngx */ "./node_modules/@ionic-native/fingerprint-aio/ngx/index.js");
 
 
 
@@ -956,6 +957,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // geolocation and native-geocoder
+
 
 
 
@@ -998,6 +1000,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         providers: [
             _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_23__["Geolocation"],
+            _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_26__["FingerprintAIO"],
             _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_25__["AndroidFingerprintAuth"],
             _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_24__["NativeGeocoder"],
             _services_http_service_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"],

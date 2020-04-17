@@ -227,15 +227,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../services/spinner-service/spinner.service */
     "./src/app/services/spinner-service/spinner.service.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var ConfiguracaoPage =
     /*#__PURE__*/
     function () {
-      function ConfiguracaoPage(userSrvc, spinnerSrvc) {
+      function ConfiguracaoPage(userSrvc, spinnerSrvc, menuCtrl, router) {
         _classCallCheck(this, ConfiguracaoPage);
 
         this.userSrvc = userSrvc;
         this.spinnerSrvc = spinnerSrvc;
+        this.menuCtrl = menuCtrl;
+        this.router = router;
       }
 
       _createClass(ConfiguracaoPage, [{
@@ -243,6 +257,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this = this;
 
+          console.log('COnfigurações');
+          this.menuCtrl.isOpen('false');
           var idUser = JSON.parse(localStorage.getItem(_configHelper__WEBPACK_IMPORTED_MODULE_3__["configHelper"].storageKeys.user));
           this.userSrvc.getByIdUser(idUser._id).subscribe(function (data) {
             _this.usuario = data;
@@ -260,6 +276,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"]
       }, {
         type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__["SpinnerService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
       }];
     };
 
@@ -271,7 +291,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./configuracao.page.scss */
       "./src/app/configuracao/configuracao.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__["SpinnerService"]])], ConfiguracaoPage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__["SpinnerService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])], ConfiguracaoPage);
     /***/
   }
 }]);

@@ -120,17 +120,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/usuario-service/usuario.service */ "./src/app/services/usuario-service/usuario.service.ts");
 /* harmony import */ var _configHelper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../configHelper */ "./src/app/configHelper.ts");
 /* harmony import */ var _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/spinner-service/spinner.service */ "./src/app/services/spinner-service/spinner.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
 
 
 
 
 
 let ConfiguracaoPage = class ConfiguracaoPage {
-    constructor(userSrvc, spinnerSrvc) {
+    constructor(userSrvc, spinnerSrvc, menuCtrl, router) {
         this.userSrvc = userSrvc;
         this.spinnerSrvc = spinnerSrvc;
+        this.menuCtrl = menuCtrl;
+        this.router = router;
     }
     ngOnInit() {
+        console.log('COnfigurações');
+        this.menuCtrl.isOpen('false');
         const idUser = JSON.parse(localStorage.getItem(_configHelper__WEBPACK_IMPORTED_MODULE_3__["configHelper"].storageKeys.user));
         this.userSrvc.getByIdUser(idUser._id).subscribe(data => {
             this.usuario = data;
@@ -140,7 +148,9 @@ let ConfiguracaoPage = class ConfiguracaoPage {
 };
 ConfiguracaoPage.ctorParameters = () => [
     { type: _services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"] },
-    { type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__["SpinnerService"] }
+    { type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__["SpinnerService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] }
 ];
 ConfiguracaoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -148,7 +158,10 @@ ConfiguracaoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./configuracao.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/configuracao/configuracao.page.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./configuracao.page.scss */ "./src/app/configuracao/configuracao.page.scss")).default]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__["SpinnerService"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_usuario_service_usuario_service__WEBPACK_IMPORTED_MODULE_2__["UsuarioService"],
+        _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_4__["SpinnerService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
 ], ConfiguracaoPage);
 
 
