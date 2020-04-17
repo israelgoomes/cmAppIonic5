@@ -9,7 +9,7 @@ import { configHelper } from 'src/app/configHelper';
 export class LoginService {
 url: string;
   constructor(public http: HttpService) {
-    this.url = `${configHelper.URL2}`;
+    this.url = `${configHelper.URL}`;
    }
 
   authenticate(email, senha): Observable<any> {

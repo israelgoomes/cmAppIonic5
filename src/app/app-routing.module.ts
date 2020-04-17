@@ -4,11 +4,11 @@ import { AuthGuardService } from './services/auth-guard-service/auth-guard.servi
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule), canActivate: [AuthGuardService]
   },
   {
-    path: 'login',
+    path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -31,6 +31,14 @@ const routes: Routes = [
   {
   path: 'detalhe-projeto',
   loadChildren: () => import('./projetos/projeto/detalhe-projeto/detalhe-projeto.module').then( m => m.DetalheProjetoPageModule)
+  },
+  {
+    path: 'geolocation-test',
+    loadChildren: () => import('./geolocation-test/geolocation-test.module').then( m => m.GeolocationTestPageModule)
+  },
+  {
+    path: 'finge-print-aio',
+    loadChildren: () => import('./finge-print-aio/finge-print-aio.module').then( m => m.FingePrintAioPageModule)
   },
 ];
 @NgModule({

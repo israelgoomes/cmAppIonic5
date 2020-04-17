@@ -6,11 +6,13 @@ import { NavController, MenuController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SpinnerService } from '../services/spinner-service/spinner.service';
 import { RefreshPageService } from '../services/refresh-page.service';
+import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss']
+  styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
@@ -22,13 +24,71 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private menuCtrl: MenuController,
     private spinnerSrvc: SpinnerService,
-    private refreshSrvc: RefreshPageService
+    private refreshSrvc: RefreshPageService,
+    private androidFingerprintAuth: AndroidFingerprintAuth,
+    private faio: FingerprintAIO
   ) {}
 
   ngOnInit() {
+
+
+    this.faio.show({
+              
+    })
+
+    if (localStorage.getItem(configHelper.storageKeys.user)) {
+      console.log('TESTE ********')
+      this.androidFingerprintAuth
+        .isAvailable()
+        .then((result) => {
+          console.log('Result', result)
+          if (result.isAvailable) {
+            console.log('TEste 2222')
+            // it is available
+
+            this.androidFingerprintAuth
+              .encrypt({
+                clientId: 'myAppName',
+                username: 'myUsername',
+                password: 'myPassword',
+                dialogTitle: 'Acessar conta',
+                dialogMessage: 'Toque no sensor de digital e confirme a biometria.',
+                dialogHint: '',
+                disableBackup: true,
+                maxAttempts: 3
+              })
+              .then((result) => {
+                if (result.withFingerprint) {
+                  this.menuCtrl.enable(true);
+                  this.route.navigate(['/tabs/tabs/clientes']);
+                  console.log('Successfully encrypted credentials.', result);
+                  console.log('Encrypted credentials: ' + result.token);
+                } else if (result.withBackup) {
+                  console.log(
+                    'Successfully authenticated with backup password!'
+                  );
+                } else { console.log("Didn't authenticate!"); }
+              } ,err=>{
+                  console.log('Erro', err)
+              })
+              .catch((error) => {
+                if (
+                  error ===
+                  this.androidFingerprintAuth.ERRORS.FINGERPRINT_CANCELLED
+                ) {
+                  console.log('Fingerprint authentication cancelled');
+                } else { console.error(error); }
+              });
+          } else {
+            // fingerprint auth isn't available
+          }
+        })
+        .catch((error) => console.error(error));
+    }
+console.log('Teste 3333333333')
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
-      senha: ['', Validators.required]
+      senha: ['', Validators.required],
     });
   }
 
@@ -38,10 +98,10 @@ export class LoginPage implements OnInit {
         this.loginForm.get('email').value,
         this.loginForm.get('senha').value
       )
-      .subscribe(data => {
+      .subscribe((data) => {
         console.log('token enviado', data.token);
         this.loginSrvc.registerLogin(data);
-        this.route.navigate(['/tabs/clientes']);
+        this.route.navigate(['/tabs/tabs/clientes']);
         this.refreshSrvc.newUser.emit();
         this.spinnerSrvc.hide();
       });

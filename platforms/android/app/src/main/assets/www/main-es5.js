@@ -808,7 +808,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./src/app/services/auth-guard-service/auth-guard.service.ts");
 
     var routes = [{
-      path: '',
+      path: 'tabs',
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() | tabs-tabs-module */
@@ -820,7 +820,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
       canActivate: [_services_auth_guard_service_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]]
     }, {
-      path: 'login',
+      path: '',
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() | login-login-module */
@@ -883,6 +883,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         /*! ./projetos/projeto/detalhe-projeto/detalhe-projeto.module */
         "./src/app/projetos/projeto/detalhe-projeto/detalhe-projeto.module.ts")).then(function (m) {
           return m.DetalheProjetoPageModule;
+        });
+      }
+    }, {
+      path: 'geolocation-test',
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | geolocation-test-geolocation-test-module */
+        "geolocation-test-geolocation-test-module").then(__webpack_require__.bind(null,
+        /*! ./geolocation-test/geolocation-test.module */
+        "./src/app/geolocation-test/geolocation-test.module.ts")).then(function (m) {
+          return m.GeolocationTestPageModule;
+        });
+      }
+    }, {
+      path: 'finge-print-aio',
+      loadChildren: function loadChildren() {
+        return __webpack_require__.e(
+        /*! import() | finge-print-aio-finge-print-aio-module */
+        "finge-print-aio-finge-print-aio-module").then(__webpack_require__.bind(null,
+        /*! ./finge-print-aio/finge-print-aio.module */
+        "./src/app/finge-print-aio/finge-print-aio.module.ts")).then(function (m) {
+          return m.FingePrintAioPageModule;
         });
       }
     }];
@@ -1273,6 +1295,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+    /*! @ionic-native/geolocation/ngx */
+    "./node_modules/@ionic-native/geolocation/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+    /*! @ionic-native/native-geocoder/ngx */
+    "./node_modules/@ionic-native/native-geocoder/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+    /*! @ionic-native/android-fingerprint-auth/ngx */
+    "./node_modules/@ionic-native/android-fingerprint-auth/ngx/index.js"); // geolocation and native-geocoder
+
 
     var configSpinner = {
       bgsColor: 'red',
@@ -1295,7 +1336,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
       entryComponents: [],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _angular_common__WEBPACK_IMPORTED_MODULE_22__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_21__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_21__["FormsModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_11__["BrowserAnimationsModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_14__["MatMenuModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_18__["MatInputModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_20__["MatExpansionModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_19__["MatSelectModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_17__["MatIconModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_15__["MatButtonModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_16__["MatFormFieldModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_13__["MatCardModule"], ngx_ui_loader__WEBPACK_IMPORTED_MODULE_12__["NgxUiLoaderModule"].forRoot(configSpinner), _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"]],
-      providers: [_services_http_service_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
+      providers: [_ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_23__["Geolocation"], _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_25__["AndroidFingerprintAuth"], _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_24__["NativeGeocoder"], _services_http_service_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
       }],

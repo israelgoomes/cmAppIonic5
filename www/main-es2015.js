@@ -710,11 +710,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     {
-        path: '',
+        path: 'tabs',
         loadChildren: () => __webpack_require__.e(/*! import() | tabs-tabs-module */ "tabs-tabs-module").then(__webpack_require__.bind(null, /*! ./tabs/tabs.module */ "./src/app/tabs/tabs.module.ts")).then(m => m.TabsPageModule), canActivate: [_services_auth_guard_service_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]]
     },
     {
-        path: 'login',
+        path: '',
         loadChildren: () => __webpack_require__.e(/*! import() | login-login-module */ "login-login-module").then(__webpack_require__.bind(null, /*! ./login/login.module */ "./src/app/login/login.module.ts")).then(m => m.LoginPageModule)
     },
     {
@@ -737,6 +737,14 @@ const routes = [
     {
         path: 'detalhe-projeto',
         loadChildren: () => Promise.all(/*! import() | projetos-projeto-detalhe-projeto-detalhe-projeto-module */[__webpack_require__.e("default~clientes-cliente-detalhe-cliente-detalhe-cliente-module~clientes-clientes-module~projetos-pr~ee0bd910"), __webpack_require__.e("default~projeto-detalhe-projeto-detalhe-projeto-module~projetos-projeto-detalhe-projeto-detalhe-proj~41c0e70e")]).then(__webpack_require__.bind(null, /*! ./projetos/projeto/detalhe-projeto/detalhe-projeto.module */ "./src/app/projetos/projeto/detalhe-projeto/detalhe-projeto.module.ts")).then(m => m.DetalheProjetoPageModule)
+    },
+    {
+        path: 'geolocation-test',
+        loadChildren: () => __webpack_require__.e(/*! import() | geolocation-test-geolocation-test-module */ "geolocation-test-geolocation-test-module").then(__webpack_require__.bind(null, /*! ./geolocation-test/geolocation-test.module */ "./src/app/geolocation-test/geolocation-test.module.ts")).then(m => m.GeolocationTestPageModule)
+    },
+    {
+        path: 'finge-print-aio',
+        loadChildren: () => __webpack_require__.e(/*! import() | finge-print-aio-finge-print-aio-module */ "finge-print-aio-finge-print-aio-module").then(__webpack_require__.bind(null, /*! ./finge-print-aio/finge-print-aio.module */ "./src/app/finge-print-aio/finge-print-aio.module.ts")).then(m => m.FingePrintAioPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -921,6 +929,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/esm2015/expansion.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/native-geocoder/ngx */ "./node_modules/@ionic-native/native-geocoder/ngx/index.js");
+/* harmony import */ var _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @ionic-native/android-fingerprint-auth/ngx */ "./node_modules/@ionic-native/android-fingerprint-auth/ngx/index.js");
 
 
 
@@ -941,6 +952,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+// geolocation and native-geocoder
 
 
 
@@ -982,6 +997,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"]
         ],
         providers: [
+            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_23__["Geolocation"],
+            _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_25__["AndroidFingerprintAuth"],
+            _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_24__["NativeGeocoder"],
             _services_http_service_http_service__WEBPACK_IMPORTED_MODULE_9__["HttpService"],
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],

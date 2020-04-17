@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario-service/usuario.service';
 import { configHelper } from '../configHelper';
 import { SpinnerService } from '../services/spinner-service/spinner.service';
+import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-configuracao',
@@ -10,9 +12,14 @@ import { SpinnerService } from '../services/spinner-service/spinner.service';
 })
 export class ConfiguracaoPage implements OnInit {
   usuario: any;
-  constructor(private userSrvc: UsuarioService, private spinnerSrvc: SpinnerService) {}
+  constructor(private userSrvc: UsuarioService,
+              private spinnerSrvc: SpinnerService,
+              private menuCtrl: MenuController,
+              private router: Router) {}
 
   ngOnInit() {
+    console.log('COnfigurações')
+    this.menuCtrl.isOpen('false')
     const idUser = JSON.parse(
       localStorage.getItem(configHelper.storageKeys.user)
     );
@@ -21,4 +28,6 @@ export class ConfiguracaoPage implements OnInit {
       this.spinnerSrvc.hide();
     });
   }
+
+
 }

@@ -26,13 +26,16 @@
             </ion-item> -->
 
            
-            <ion-button style="border: none;" routerLink="/configuracao"  fill="clear">
+            <ion-button style="border: none;" routerDirection="root" routerLink="/configuracao" routerLinkActive="active" fill="clear">
               Settings <ion-icon name="power-outline"></ion-icon>          
             </ion-button> 
 
 
             <ion-button style="border: none;" (click)="sair()" fill="clear">
               Sair <ion-icon name="power-outline"></ion-icon>          
+            </ion-button>  
+            <ion-button style="border: none;" routerLink="/tabs/tabs/clientes" fill="clear">
+              back <ion-icon name="power-outline"></ion-icon>          
             </ion-button>  
           
 

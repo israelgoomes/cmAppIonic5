@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+        Ionic 4 Geolocation & Geocoder Examples
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+    <ion-button (click)="getCurrentCoordinates()" expand="block">
+      Buscar localização
+    </ion-button>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Location Coordinates</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        Latitue
+      </ion-label>
+      {{latitude}}
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Longitude
+      </ion-label>
+      {{longitude}}
+    </ion-item>
+    </ion-list>    
+  </div>
+
+
+<ion-card *ngIf="address">
+  <ion-card-header>
+    Endereço
+  </ion-card-header>
+  <ion-card-content>
+    País: {{address?.countryName}}<br>
+    Cidade: {{address?.subAdministrativeArea}} <br>
+    Estado: {{address?.administrativeArea}}<br>
+    Rua: {{address?.thoroughfare}}<br>
+    Bairro: {{address?.subLocality}}<br>
+    Cep: {{address?.postalCode}}<br>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
+
+
+
+

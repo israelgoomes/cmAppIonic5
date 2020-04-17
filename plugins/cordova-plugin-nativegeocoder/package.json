@@ -1,0 +1,100 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-nativegeocoder",
+        "scope": null,
+        "escapedName": "cordova-plugin-nativegeocoder",
+        "name": "cordova-plugin-nativegeocoder",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\lsrael\\Desktop\\Projetos\\cmAppIonic5"
+    ]
+  ],
+  "_from": "cordova-plugin-nativegeocoder",
+  "_hasShrinkwrap": false,
+  "_id": "cordova-plugin-nativegeocoder@3.4.0",
+  "_location": "/cordova-plugin-nativegeocoder",
+  "_nodeVersion": "10.14.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-nativegeocoder_3.4.0_1585555493434_0.4507939127927334"
+  },
+  "_npmUser": {
+    "name": "sebastianbaar",
+    "email": "mail.sebastianbaar@gmail.com"
+  },
+  "_npmVersion": "6.14.4",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-nativegeocoder",
+    "scope": null,
+    "escapedName": "cordova-plugin-nativegeocoder",
+    "name": "cordova-plugin-nativegeocoder",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-nativegeocoder/-/cordova-plugin-nativegeocoder-3.4.0.tgz",
+  "_shasum": "a411463ee1cc72b7d335ca69978fb629ec0c0973",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-nativegeocoder",
+  "_where": "C:\\Users\\lsrael\\Desktop\\Projetos\\cmAppIonic5",
+  "author": {
+    "name": "Sebastian Baar"
+  },
+  "bugs": {
+    "url": "https://github.com/sebastianbaar/cordova-plugin-nativegeocoder/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-nativegeocoder",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova plugin for native forward and reverse geocoding",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-LZGJXCj5AXvQC+p2D9usHjk5i7Dm0nhfus4db2afIHDWC04ygHoHmn5rwj+qGLM6cr3Qy33+qkCh6OHGgwQpaw==",
+    "shasum": "a411463ee1cc72b7d335ca69978fb629ec0c0973",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-nativegeocoder/-/cordova-plugin-nativegeocoder-3.4.0.tgz",
+    "fileCount": 12,
+    "unpackedSize": 44795,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJegaglCRA9TVsSAnZWagAAD34QAJOXMiH3tTO1YK/m5qSP\n5XB+dxDA8Etj+cTli4pRiY28MjqgsXXzcVEsIhdQeZ87NXCtPQSKDMqZilb/\nbW03uvTMbUnem65QL1HtSwxneOnWGDpYewrJ+38bGx6MIWtrT2v8Z5hhsw0I\nDlANXpJU2mmpPj5eNRsm0PJTq4vxVJSRAR+TkSB6I5xY/Cwzr1iM+5GP+FI3\npIgxdDz1es2OvvXIQzsfxvZZfldz74yy2fA4/MzdKm8yZh3wNPKPyTIRWONx\n+26Q7EbRisJWPSaKVbr0oc1ix8Bxy9WJGXaup7kCkthAENWaU3e+mKg0iA0O\nJtWyDgnMXV37R1bqaVzMDnb/X5dzj3N26NkxnoKIPqeBn98FBbzC0zZzQivs\nx8Z4DT1LXOCqO86EzE9zzo7am4PwnLDDQKM4QKBRGeAI4M6gIFlvPZ1jrOrW\nVw5q2BaMUsfAKTipQJil/u6CzVJfTlFc7fDqCDghZyQBk8xlj24FAMV8N8zi\nq6S55NM+IvGDp7V2xNOfgBWANTl4sNPP0noV/IRjQOitt248O+pz/JcsILwk\njcwvaolEC+iOduolLndychoPhRvV9pQgRhg7Ip8gR2pmWWLwfRUtakXGbF4+\nH/s2PBdBnw7UDRlGjzH3vWI/kgg9qTtpUb78LukbbfRxBx1IMzd5/GGjWjZD\nVYUa\r\n=avl2\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "gitHead": "141d269b204a1843459ed3520122eb6c526c2c05",
+  "homepage": "https://github.com/sebastianbaar/cordova-plugin-nativegeocoder#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "geocoder",
+    "geocoding",
+    "location"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "sebastianbaar",
+      "email": "seb.baar@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-nativegeocoder",
+  "optionalDependencies": {},
+  "readme": "# Cordova NativeGeocoder plugin\nCall `nativegeocoder.reverseGeocode()` to transform a latitude and longitude into an address or `nativegeocoder.forwardGeocode()` to transform an address into a latitude and longitude using iOS [CoreLocation](https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CoreLocation_Framework/) service and Android [Geocoder](https://developer.android.com/reference/android/location/Geocoder.html) class.\n\n> No need for creating API keys or querying external APIs\n\n\n**Please read [Known Issues](#known-issues) before posting an issue! Thank you!** :heart_eyes:\n\n## Ionic\n\nThis plugin is also available for **[Ionic Native](https://ionicframework.com/docs/native/native-geocoder/) & [Capacitor](https://ionicframework.com/docs/native/native-geocoder/)**.\n\n## Installation\n```\ncordova plugin add cordova-plugin-nativegeocoder\n```\n**For iOS Cordova iOS version >5.0.0 is required.**\n\n## Configuration\nYou can also configure the following variable to customize the iOS location plist entry\n\n- `LOCATION_WHEN_IN_USE_DESCRIPTION` for `NSLocationWhenInUseUsageDescription` (defaults to \"Use geocoder service\")\n\n## Supported Platforms\n- iOS\n- Android\n\n## API\n- [.reverseGeocode(success, error, latitude, longitude, options)]()\n- [.forwardGeocode(success, error, addressString, options)]()\n\n## .reverseGeocode(successCallback, errorCallback, latitude, longitude, options);\nReverse geocode a given latitude and longitude to find location address.\n\n### Parameters\n\n| Parameter        | Type       | Default | Description                                                   |\n| ---------------- | ---------- | ------- | ------------------------------------------------------------- |\n| `success` | `Function` |         | Success callback (with Array<Result>)              |\n| `error`   | `Function` |         | Error callback. |\n| `latitude` | `Number` |         | The latitude.               |\n| `longitude`   | `Number` |         | The longtitude. |\n| `options`   | `Object` |         | Optional. Is called when the api encounters an error while initializing the context. |\n\nAll available `options` attributes:\n\n| Attribute                      | Type     | Default                                                      | Comment                                        |\n| ------------------------------ | -------- | ------------------------------------------------------------ | -------------------------------------------------- |\n| `useLocale`  | `Boolean` | true | Optional. Only works for Android and iOS 11.0+. |\n| `defaultLocale` | `String` |  | Optional. E.g.: 'fa-IR' or 'de_DE'; works only for Android and iOS 11.0+. |\n| `maxResults` | `Number` | 1 | Optional. Min value: 1, max value: 5. |\n\n### Array<Result>\nConforms to [Apple's](https://developer.apple.com/documentation/corelocation/clplacemark) and [Android's](https://developer.android.com/reference/android/location/Address.html) geocoder's result arrays.\n\n| Value | Type     |\n|-------------|-----------\n| `latitude`  | `String` |\n| `longitude`  | `String` |\n| `countryCode`  | `String` | \n| `postalCode`  | `String` | \n| `administrativeArea`  | `String` | \n| `subAdministrativeArea`  | `String` | \n| `locality`  | `String` | \n| `subLocality`  | `String` | \n| `thoroughfare`  | `String` | \n| `subThoroughfare`  | `String` |\n| `areasOfInterest`  | `Array<String>` | \n\n### Example\n```js\nnativegeocoder.reverseGeocode(success, failure, 52.5072095, 13.1452818, { useLocale: true, maxResults: 1 });\n\nfunction success(result) {\n  var firstResult = result[0];\n  console.log(\"First Result: \" + JSON.stringify(firstResult));\n}\n\nfunction failure(err) {\n  console.log(err);\n}\n```\n\n## .forwardGeocode(success, error, addressString, options)\nForward geocode a given address to find coordinates.\n\n### Parameters\n\n| Parameter        | Type       | Default | Description                                                   |\n| ---------------- | ---------- | ------- | ------------------------------------------------------------- |\n| `success` | `Function` |         | Success callback (with Array<Result>)              |\n| `error`   | `Function` |         | Error callback. |\n| `addressString` | `String` |         | The address to be geocoded.               |\n| `options`   | `Object` |         | Optional. Is called when the api encounters an error while initializing the context. |\n\nAll available `options` attributes:\n\n| Attribute                      | Type     | Default                                                      | Comment                                        |\n| ------------------------------ | -------- | ------------------------------------------------------------ | -------------------------------------------------- |\n| `useLocale`  | `Boolean` | true | Optional. Only works for Android and iOS 11.0+. |\n| `defaultLocale` | `String` |  | Optional. E.g.: 'fa-IR' or 'de_DE'; works only for Android and iOS 11.0+. |\n| `maxResults` | `Number` | 1 | Optional. Min value: 1, max value: 5. |\n\n### Array<Result>\nConforms to [Apple's](https://developer.apple.com/documentation/corelocation/clplacemark) and [Android's](https://developer.android.com/reference/android/location/Address.html) geocoder's result arrays.\n\n| Value | Type     |\n|-------------|-----------\n| `latitude`  | `String` |\n| `longitude`  | `String` |\n| `countryCode`  | `String` | \n| `postalCode`  | `String` | \n| `administrativeArea`  | `String` | \n| `subAdministrativeArea`  | `String` | \n| `locality`  | `String` | \n| `subLocality`  | `String` | \n| `thoroughfare`  | `String` | \n| `subThoroughfare`  | `String` |\n| `areasOfInterest`  | `Array<String>` | \n\n### Example\n```js\nnativegeocoder.forwardGeocode(success, failure, \"Berlin\", { useLocale: true, maxResults: 1 });\n\nfunction success(coordinates) {\n  var firstResult = coordinates[0];\n  console.log(\"The coordinates are latitude = \" + firstResult.latitude + \" and longitude = \" + firstResult.longitude);\n}\n\nfunction failure(err) {\n  console.log(err);\n}\n```\n\n## Known Issues\n\n### Android \n\n#### Geocoder not working\nErrors like `Geocoder is not present on this device/emulator.`, `Geocoder [...] Error` or `Geocoder Service not available`.\n\n**Why?**: \nThe plugin checks for `Geocoder.isPresent()` ([Android docs](https://developer.android.com/reference/android/location/Geocoder.html#isPresent())). One reason for Geocoder not working on a device could be that you are running your app on an emulator or on a device without Google Play Services. But Geocoder API \"[...] requires a backend service that is not included in the core android framework\".\n\n**Any workaround?**: \nYes. Query [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start) as a backup if Geocoder is not present.\n\n**Can the plugin handle this?**: \nNo. I decided not to implement Google Maps Geocoding API as a backup because you have to add an [API key and more](https://developers.google.com/maps/documentation/geocoding/usage-and-billing). I want this plugin to remain as small and lightweight as possible.\n\n### iOS\n...\n\n## Thank you :heart:\nYes you! Thank you very much for using cordova-plugin-nativegeocoder. If you have any feedback or run into issues using the plugin, please file an [issue](https://github.com/sebastianbaar/cordova-plugin-nativegeocoder/issues/new) on this repository.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastianbaar/cordova-plugin-nativegeocoder.git"
+  },
+  "version": "3.4.0"
+}

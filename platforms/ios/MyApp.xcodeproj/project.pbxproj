@@ -24,6 +24,7 @@
 		D986A0D256A941B4B59B7060 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB678D4BFB249009BF0E523 /* CDVSplashScreen.m */; };
 		77DF742A431D47018EB2C8BF /* CDVViewController+SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A66301963744AAA697D5A9 /* CDVViewController+SplashScreen.m */; };
 		8938BBCFDBA54F5E93E9E250 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A6D3E8DDE34B0E907B6EC0 /* CDVStatusBar.m */; };
+		179E8FE5AFB340978521AD25 /* Fingerprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF502DF5ADEA4B82B38E62EC /* Fingerprint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		98ACD50F979E40B180265BC0 /* CDVViewController+SplashScreen.h */ = {isa = PBXFileReference; name = "CDVViewController+SplashScreen.h"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		60A6D3E8DDE34B0E907B6EC0 /* CDVStatusBar.m */ = {isa = PBXFileReference; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		2FCEA8751986493DA81898D9 /* CDVStatusBar.h */ = {isa = PBXFileReference; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		CF502DF5ADEA4B82B38E62EC /* Fingerprint.swift */ = {isa = PBXFileReference; name = "Fingerprint.swift"; path = "cordova-plugin-fingerprint-aio/Fingerprint.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
+		F82599792D6F4A3EB16E60C1 /* Bridging-Header.h */ = {isa = PBXFileReference; name = "Bridging-Header.h"; path = "cordova-plugin-fingerprint-aio/Bridging-Header.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,8 @@
 				98ACD50F979E40B180265BC0 /* CDVViewController+SplashScreen.h */,
 				60A6D3E8DDE34B0E907B6EC0 /* CDVStatusBar.m */,
 				2FCEA8751986493DA81898D9 /* CDVStatusBar.h */,
+				CF502DF5ADEA4B82B38E62EC /* Fingerprint.swift */,
+				F82599792D6F4A3EB16E60C1 /* Bridging-Header.h */,
 			);
 			name = Plugins;
 			path = "MyApp/Plugins";
@@ -347,6 +352,7 @@
 				D986A0D256A941B4B59B7060 /* CDVSplashScreen.m in Sources */,
 				77DF742A431D47018EB2C8BF /* CDVViewController+SplashScreen.m in Sources */,
 				8938BBCFDBA54F5E93E9E250 /* CDVStatusBar.m in Sources */,
+				179E8FE5AFB340978521AD25 /* Fingerprint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +389,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -406,6 +416,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -450,6 +463,10 @@
 				WK_WEB_VIEW_ONLY = 0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.starter;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -492,6 +509,9 @@
 				WK_WEB_VIEW_ONLY = 0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.ionic.starter;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging-Header.h";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -22,8 +22,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
-
-
+// geolocation and native-geocoder
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
+import { FingerprintAIO} from '@ionic-native/fingerprint-aio/ngx';
 const configSpinner: NgxUiLoaderConfig ={
   bgsColor: 'red',
   bgsPosition: POSITION.centerCenter,
@@ -61,6 +64,10 @@ const configSpinner: NgxUiLoaderConfig ={
     AppRoutingModule, 
     HttpClientModule],
   providers: [
+    Geolocation,
+    FingerprintAIO,
+    AndroidFingerprintAuth,
+    NativeGeocoder,
     HttpService,
     StatusBar,
     SplashScreen,
