@@ -2,7 +2,7 @@
   <ion-menu-button autoHide="false"></ion-menu-button>
 </ion-buttons>
 <ion-fab vertical="top" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="addClient()">
+  <ion-fab-button [color]="color" (click)="addClient()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
@@ -22,7 +22,7 @@
 <app-cliente [cliente]="cliente" ></app-cliente>
 </div>
 
-<ion-button ion-button shape="block" fill="outline" routerLink="/geolocation-test">Geolocation</ion-button>
+<!-- <ion-button ion-button shape="block" fill="outline" routerLink="/geolocation-test">Geolocation</ion-button> -->
 
 <!-- <form [formGroup]="formGroup">
 <app-cm-select formControlName="option" [lista]="lista" view="viewValue" valueAtr="id"></app-cm-select>

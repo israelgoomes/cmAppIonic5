@@ -1,25 +1,22 @@
-<ion-buttons >
+<!-- <ion-buttons >
   <ion-menu-button autoHide="false"></ion-menu-button>
-</ion-buttons>
 
+</ion-buttons> -->
+<ion-toolbar>
+  <ion-icon (click)="voltar()" name="arrow-back-outline"></ion-icon>
+</ion-toolbar>
 
 <ion-content padding>
-  <div id="header">
-    
-  <!-- <ion-label id="title">Configurações</ion-label> -->
-  
-  
+  <div [ngClass]="class">
   <div id="left">
     
-    <ion-item class="circle">
+    <div (click)="getPicture()" class="circle">
       <img [src]="usuario?.foto" width="70" height="70"/>
-    </ion-item>
+    </div>
   </div>
   <div id="right">
-    <!-- <ion-item  class="dataUser">   -->
       {{usuario?.nome}}<br/>
       {{usuario?.email}}
-    <!-- </ion-item> -->
   </div>
   </div>
   
@@ -30,25 +27,25 @@
     <ion-card-content>
   
       <div class="div1"> 
-        <div class="theme1" (click)="theme('purple')">
+        <div class="theme1" (click)="setTheme('purple')">
         </div>
-          <ion-input style="padding-left: 14px;" type="text" value="Purple" readonly ></ion-input>
+          <ion-input style="padding-left: 14px;" type="text" value="purple" readonly ></ion-input>
       </div>
       
       <div class="div2"> 
-          <div class="theme2" (click)="theme('#527F76')">
+          <div class="theme2" (click)="setTheme('origin')">
           </div>
           <ion-input style="padding-left: 11px;" type="text" value="Original" readonly ></ion-input>
         </div>
       
         <div class="div3"> 
-            <div class="theme3" (click)="theme('blue')">
+            <div class="theme3" (click)="setTheme('blue')">
             </div>
             <ion-input style="padding-left: 20px;" type="text" value="Blue" readonly ></ion-input>
           </div>
       
           <div class="div4"> 
-              <div class="theme4" (click)="theme('black')">
+              <div class="theme4" (click)="setTheme('black')">
               </div>
               <ion-input style="padding-left: 19px;" type="text" value="Dark" readonly ></ion-input>
             </div>

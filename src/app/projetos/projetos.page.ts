@@ -6,6 +6,7 @@ import { ModalController } from '@ionic/angular';
 import { RefreshPageService } from '../services/refresh-page.service';
 import { configHelper } from '../configHelper';
 import { ModalCadastroProjetoPage } from './modal-cadastro-projeto/modal-cadastro-projeto.page';
+import { UtilsService } from '../services/utils/utils.service';
 
 @Component({
   selector: 'app-projetos',
@@ -13,12 +14,17 @@ import { ModalCadastroProjetoPage } from './modal-cadastro-projeto/modal-cadastr
   styleUrls: ['./projetos.page.scss'],
 })
 export class ProjetosPage implements OnInit {
-
+  color = "primary";
   listaServicos: ProjetoModel[] = [];
   constructor(private servicoSrvc: ProjetoService,
               public spinnerSrvc: SpinnerService,
               private modalCtrl: ModalController,
-              private refreshSrvc: RefreshPageService) { }
+              private refreshSrvc: RefreshPageService,
+              private utilSrvc: UtilsService) {
+                this.color = localStorage.getItem(configHelper.storageKeys.color) != null ? 
+                localStorage.getItem(configHelper.storageKeys.color) : 'primary';
+                this.color = this.utilSrvc.colorConvert(this.color);
+               }
 
 
   ngOnInit() {

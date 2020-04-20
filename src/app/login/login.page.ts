@@ -32,9 +32,9 @@ export class LoginPage implements OnInit {
   ngOnInit() {
 
 
-    this.faio.show({
+    // this.faio.show({
               
-    })
+    // })
 
     if (localStorage.getItem(configHelper.storageKeys.user)) {
       console.log('TESTE ********')

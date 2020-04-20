@@ -49,6 +49,7 @@ export class EditaClienteComponent implements OnInit {
     this.projetoSrvc.projectByClient(this.cliente._id).subscribe(projects =>{
       this.projectList = projects;
       console.log('projetos do cliente', this.projectList)
+      this.spinnerSrvc.hide();
 });
 
   }

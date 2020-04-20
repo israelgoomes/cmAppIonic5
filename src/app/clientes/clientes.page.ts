@@ -8,6 +8,8 @@ import { RefreshPageService } from '../services/refresh-page.service';
 import { ModalController, LoadingController, MenuController } from '@ionic/angular';
 import { ModalCadastroClientePage } from './modal-cadastro-cliente/modal-cadastro-cliente.page';
 import { SpinnerService } from '../services/spinner-service/spinner.service';
+import { config } from 'rxjs';
+import { UtilsService } from '../services/utils/utils.service';
 
 @Component({
   selector: 'app-clientes',
@@ -22,13 +24,18 @@ export class ClientesPage implements OnInit {
     {id: 3, viewValue: 'Teste'}
   ];
   formGroup: FormGroup;
+  color = "primary"
   constructor(
     private clienteSrvc: ClienteService,
     private refreshSrvc: RefreshPageService,
     private modalCtrl: ModalController,
     private spinnerSrvc: SpinnerService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private utilSrvc: UtilsService
   ) {
+    this.color = localStorage.getItem(configHelper.storageKeys.color) != null ? 
+    localStorage.getItem(configHelper.storageKeys.color) : 'primary'; 
+    this.color = this.utilSrvc.colorConvert(this.color);
     this.ionViewWillEnter();
   }
 

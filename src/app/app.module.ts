@@ -27,6 +27,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
 import { FingerprintAIO} from '@ionic-native/fingerprint-aio/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+
+
 const configSpinner: NgxUiLoaderConfig ={
   bgsColor: 'red',
   bgsPosition: POSITION.centerCenter,
@@ -71,6 +74,8 @@ const configSpinner: NgxUiLoaderConfig ={
     HttpService,
     StatusBar,
     SplashScreen,
+    Camera,
+    StatusBar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

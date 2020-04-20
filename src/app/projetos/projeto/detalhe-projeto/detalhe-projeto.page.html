@@ -4,9 +4,9 @@
   </ion-buttons>
 </ion-toolbar>
 
-<ion-content>
-  <section id="sec-01">
-    <div id="left">
+<ion-content [ngClass]="class">
+  <section [ngClass]="class">
+    <div [ngStyle]="leftStyle">
       <div class="circle" (click)="changeColor()" [ngStyle]="{color: changeColorOptions[colorOption] }" style="text-align: center;">
         <p
           style="margin-left: auto; margin-right: auto; font-size: 25px;" [ngStyle]="{'color':colors[color]}">
@@ -15,11 +15,8 @@
       </div>
     </div>
 
-    <div id="right">
+    <div [ngStyle]="rightStyle">
       <div class="titulo-principal" style="margin-top: 07px; text-align: left;">
-        <!-- {{project.tituloProjeto}}<br />
-        {{project.cliente.nome}}<br />
-        {{project.cliente.email}}<br /> -->
       </div>
     </div>
   </section>

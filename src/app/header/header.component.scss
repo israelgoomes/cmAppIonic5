@@ -11,9 +11,27 @@
 }
 
 
-ion-card{
+.origin{
     background-image: linear-gradient(to bottom, white, #527F76); 
     height: 250px;
     text-align: center;
+}
+
+.purple{
+  background-image: linear-gradient(to bottom, white, purple); 
+  height: 250px;
+  text-align: center;
+}
+
+.blue{
+  background-image: linear-gradient(to bottom, white, Navy); 
+  height: 250px;
+  text-align: center;
+}
+
+.black{
+  background-image: linear-gradient(to bottom, white, black); 
+  height: 250px;
+  text-align: center;
 }
 

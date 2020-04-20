@@ -7,6 +7,6 @@ export class configHelper {
         token: 'novadesign.token',
         user: 'novadesign.user',
         selectClient: 'novadesign.select.client',
-        color: 'cm.theme'
+        color: 'cm.theme',
     }
 }

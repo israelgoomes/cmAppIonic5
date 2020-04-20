@@ -29,14 +29,46 @@
     border: none !important;
   }
 
-  section#sec-01{
+  .origin{
     margin-bottom: 30px;
     text-align: center;
-    height: 35%;
-    //background-color: red;
+   // height: 35%;
+   height: 45%;
+   //background-color: red;
     background-image: linear-gradient(to bottom, white, #527F76); 
 
 }
+
+
+.purple{
+  margin-bottom: 30px;
+  text-align: center;
+  height: 45%;
+  //background-color: red;
+  background-image: linear-gradient(to bottom, white, purple); 
+
+}
+
+.blue{
+  margin-bottom: 30px;
+  text-align: center;
+  // height: 35%;
+  height: 45%;
+  //background-color: red;
+  background-image: linear-gradient(to bottom, white, blue); 
+
+}
+
+.black{
+  margin-bottom: 30px;
+  text-align: center;
+  // height: 35%;
+  height: 45%;
+  //background-color: red;
+  background-image: linear-gradient(to bottom, white, black); 
+
+}
+
 
 section#sec-02{
     padding-top: 20px;
@@ -51,11 +83,11 @@ section#sec-02{
   padding-top: 10px;
 }
 ion-content{
-  --ion-background-color: #527F76;
+  --ion-background-color: white;
 }
 
-ion-item{
-  background-color: white;
+ion-item ion-ripple-effect.md .hydrated{
+  background-color: white !important;
 }
 
 button.button-native{
@@ -63,5 +95,14 @@ button.button-native{
 }
 
 ion-icon{
-  padding-left: 200px;
+  
+}
+
+.item-native::after{
+  background-color: white;
+
+}
+
+ion-ripple-effect{
+  background-color: white;
 }

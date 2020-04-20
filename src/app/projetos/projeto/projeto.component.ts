@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-servico',
+  selector: 'app-projeto',
   templateUrl: './projeto.component.html',
   styleUrls: ['./projeto.component.scss'],
 })

@@ -48,4 +48,16 @@ populaColorOption(){
   return ["blue", "orange", "white", "purple", "pink", "green"]
 }
 
+
+colorConvert(color){
+  if(color == 'black'){
+    color = 'dark';
+  }else if(color == 'origin'){
+    color = 'primary'
+  } else if(color == "blue"){
+    color = 'tertiary'
+  }
+  return color;
+}
+
 }

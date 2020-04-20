@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 import { ProjetoModel } from 'src/app/models/servicos-model';
 import { ProjetoService } from '../../../services/projeto-service/projeto.service';
 import { UtilsService } from '../../../services/utils/utils.service';
+import { configHelper } from 'src/app/configHelper';
 
 @Component({
   selector: 'app-detalhe-cliente',
@@ -19,6 +20,25 @@ export class DetalheClientePage implements OnInit {
   color = 0;
   colorOption = 0;
   projectList: Array<ProjetoModel> = [];
+  class = 'origin'
+  leftStyle = {
+    'border': 'none',
+    'width': '28%',
+    'float': 'left',
+    'height': '100px',
+    'background-image': `linear-gradient(to bottom, white, ${this.class})`
+  };
+
+  rightStyle = {
+     'border': 'none',
+     'background-image': `linear-gradient(to bottom, white, ${this.class})`,
+     'width': '72%',
+     'height': '100px',
+     'float': 'left'
+  }
+
+  fontColor = 'black'
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,6 +46,12 @@ export class DetalheClientePage implements OnInit {
     private projetoSrvc: ProjetoService,
     private util: UtilsService
   ) {
+    this.class = localStorage.getItem(configHelper.storageKeys.color);
+
+    if(this.class == 'black'){
+      this.fontColor = 'white';
+    }
+
     this.colors = util.populaColor();
     this.changeColorOptions = util.populaColorOption();
   }

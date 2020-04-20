@@ -8,7 +8,6 @@ import { IonicModule } from '@ionic/angular';
 import { ProjetosPageRoutingModule } from './projetos-routing.module';
 
 import { ProjetosPage } from './projetos.page';
-import { ModalCadastroProjetoPageModule } from './modal-cadastro-projeto/modal-cadastro-projeto.module';
 import { ModalCadastroProjetoPage } from './modal-cadastro-projeto/modal-cadastro-projeto.page';
 
 

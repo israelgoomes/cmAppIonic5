@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
-import { ModalCadastroProjetoPageRoutingModule } from './modal-cadastro-projeto-routing.module';
-
 import { ModalCadastroProjetoPage } from './modal-cadastro-projeto.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -15,9 +12,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     IonicModule,
     SharedModule,
-    ModalCadastroProjetoPage
+    //ModalCadastroProjetoPage
   ],
-  declarations: [ModalCadastroProjetoPage],
-  entryComponents: [ModalCadastroProjetoPage]
+  declarations: [],
+  entryComponents: []
 })
 export class ModalCadastroProjetoPageModule {}

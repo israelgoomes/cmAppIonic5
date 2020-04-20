@@ -58,6 +58,7 @@ export class EditaProjetoComponent implements OnInit {
     );
     this.clienteSrvc.getClientsByIdUser(userData._id).subscribe(clientes => {
       this.listaClientes = clientes;
+      this.spinnerSrvc.hide();
     });
     this.projectForm.disable();
     }

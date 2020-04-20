@@ -7,5 +7,6 @@ export class RefreshPageService {
   refreshClient = new EventEmitter();
   refreshProject = new EventEmitter();
   newUser = new EventEmitter();
+  changeTheme = new EventEmitter();
   constructor() { }
 }

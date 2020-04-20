@@ -44,6 +44,50 @@
         background-image: linear-gradient(to bottom, white, #527F76); 
     
     }
+
+    .origin{
+        margin-bottom: 30px;
+        text-align: center;
+        // height: 35%;
+        height: 80px;
+        //background-color: red;
+        --ion-background-color: #527F76;
+        background-image: linear-gradient(to bottom, white, #527F76); 
+     
+     }
+     
+     
+     .purple{
+       margin-bottom: 30px;
+       text-align: center;
+       height: 80px;
+       //background-color: red;
+       --ion-background-color: purple;
+       background-image: linear-gradient(to bottom, white, purple); 
+     
+     }
+     
+     .blue{
+       margin-bottom: 30px;
+       text-align: center;
+       // height: 35%;
+       height: 80px;
+       //background-color: red;
+       --ion-background-color: blue;
+       background-image: linear-gradient(to bottom, white, blue); 
+     
+     }
+     
+     .black{
+       margin-bottom: 30px;
+       text-align: center;
+       // height: 35%;
+       height: 80px;
+       //background-color: red;
+       --ion-background-color: black;
+       background-image: linear-gradient(to bottom, white, black); 
+     
+     }
     
     section#sec-02{
         padding-top: 20px;

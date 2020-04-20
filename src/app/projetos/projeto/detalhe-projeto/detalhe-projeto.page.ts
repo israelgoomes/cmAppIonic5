@@ -4,6 +4,7 @@ import { ProjetoModel } from "src/app/models/servicos-model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MachineTextService } from "../../../services/machine-servico/machine-text.service";
 import { UtilsService } from '../../../services/utils/utils.service';
+import { configHelper } from 'src/app/configHelper';
 
 @Component({
   selector: "app-detalhe-projeto",
@@ -14,14 +15,32 @@ export class DetalheProjetoPage implements OnInit {
   colors = []
   changeColorOptions = [];
   color = 0;
+  class= "origin"
   colorOption = 0;
   iniciais: string;
   project: ProjetoModel;
+  leftStyle = {
+    'border': 'none',
+    'width': '28%',
+    'float': 'left',
+    'height': '100px',
+    'background-image': `linear-gradient(to bottom, white, ${this.class})`,
+  };
+
+  rightStyle = {
+     'border': 'none',
+     'background-image': `linear-gradient(to bottom, white, ${this.class})`,
+     'width': '72%',
+     'height': '100px',
+     'float': 'left',
+
+    }
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private util: UtilsService
   ) {
+    this.class = localStorage.getItem(configHelper.storageKeys.color);
       this.colors = util.populaColor();
       this.changeColorOptions = util.populaColorOption();
   }

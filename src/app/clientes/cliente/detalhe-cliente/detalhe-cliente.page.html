@@ -5,11 +5,11 @@
     </ion-buttons>
   </ion-toolbar>
 
-<ion-content>
+<ion-content [ngClass]="class">
 
-  <section id="sec-01" >
+  <section [ngClass]="class" >
 
-  <div id="left">
+  <div [ngStyle]="leftStyle">
     <div class="circle" (click)="changeColor()" [ngStyle]="{color: changeColorOptions[colorOption] }" style="text-align: center;">
       <p style="margin-left: auto; margin-right: auto; font-size: 25px;" [ngStyle]="{'color':colors[color]}">
       {{iniciais}}
@@ -17,8 +17,8 @@
     </div>
   </div>  
 
-  <div id="right">
-    <div class="titulo-principal" style="margin-top: 07px; text-align: left;">
+  <div [ngStyle]="rightStyle">
+    <div class="titulo-principal" [ngStyle]="{ color: fontColor}" style="margin-top: 07px; text-align: left;">
 </div>
   </div>
 

@@ -123,4 +123,8 @@
     <feature name="Fingerprint">
         <param name="ios-package" value="Fingerprint" />
     </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <preference name="CameraUsesGeolocation" value="false" />
 </widget>

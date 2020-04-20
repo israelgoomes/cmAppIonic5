@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-geolocation-test',
@@ -9,7 +10,7 @@ import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@io
 })
 export class GeolocationTestPage implements OnInit {
 
-constructor(private geolocation: Geolocation,  private nativeGeocoder: NativeGeocoder) {}
+constructor(private geolocation: Geolocation,  private nativeGeocoder: NativeGeocoder, private router: Router) {}
   latitude: any = 0; // latitude
   longitude: any = 0; // longitude
   teste: any;
@@ -87,6 +88,8 @@ getMap(){
    + '&key=AIzaSyDIG5sfeA8GbckBb_ZHWUQdJhGR1w4iULc';
 
 }
-
+voltar(){
+  this.router.navigate(['/tabs/tabs/clientes'])
+ }
 
 }

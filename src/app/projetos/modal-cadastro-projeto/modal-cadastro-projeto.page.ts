@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { configHelper } from 'src/app/configHelper';
 
 @Component({
   selector: 'app-modal-cadastro-projeto',
@@ -7,8 +8,10 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./modal-cadastro-projeto.page.scss'],
 })
 export class ModalCadastroProjetoPage implements OnInit {
-
-  constructor(private modalCtrl: ModalController) { }
+  class = "origin"
+  constructor(private modalCtrl: ModalController) { 
+    this.class = localStorage.getItem(configHelper.storageKeys.color);
+  }
 
   ngOnInit() {
   }

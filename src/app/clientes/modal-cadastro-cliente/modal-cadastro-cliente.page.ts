@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
+import { configHelper } from 'src/app/configHelper';
 
 @Component({
   selector: 'app-modal-cadastro-cliente',
@@ -7,8 +8,10 @@ import { NavController, ModalController } from '@ionic/angular';
   styleUrls: ['./modal-cadastro-cliente.page.scss'],
 })
 export class ModalCadastroClientePage implements OnInit {
-
-  constructor(private navCtrl: NavController, private modalCtrl: ModalController) { }
+  class = "origin"
+  constructor(private navCtrl: NavController, private modalCtrl: ModalController) {
+    this.class = localStorage.getItem(configHelper.storageKeys.color);
+   }
 
   ngOnInit() {
   }

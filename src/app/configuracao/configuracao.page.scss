@@ -1,8 +1,29 @@
-div#header{
+.origin{
     height: 170px;
     background-image: linear-gradient(to bottom, white, #527F76); 
     // background-color: #527F76;
     text-align: center;
+}
+
+.purple{
+  height: 170px;
+  background-image: linear-gradient(to bottom, white, purple); 
+  // background-color: #527F76;
+  text-align: center;
+}
+
+.blue{
+  height: 170px;
+  background-image: linear-gradient(to bottom, white, Navy); 
+  // background-color: #527F76;
+  text-align: center;
+}
+
+.black{
+  height: 170px;
+  background-image: linear-gradient(to bottom, white, black); 
+  // background-color: #527F76;
+  text-align: center;
 }
 
 .scroll-content{
@@ -92,10 +113,17 @@ div#header span{
     margin-left: 5px;
     padding-left: 0px !important; 
   }
+
+.purpleTheme{
+  
+}
+
+
+
   .circle img {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    //position: absolute;
+    //bottom: 0;
+    //width: 100%;
   }
   #left {
     width:30%;
@@ -149,3 +177,9 @@ div#header span{
     .item-native{
       background-color: black;
     }
+    ion-icon{
+      font-size: 30px;
+  }
+  ion-item.circle div.item-native {
+    padding: 0px !important;
+  }

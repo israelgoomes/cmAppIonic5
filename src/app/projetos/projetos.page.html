@@ -3,7 +3,7 @@
   <ion-menu-button autoHide="false"></ion-menu-button>
 </ion-buttons>
 <ion-fab vertical="top" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="cadastroProjeto()">
+  <ion-fab-button [color]="color" (click)="cadastroProjeto()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
@@ -13,7 +13,7 @@
 
 
   <div *ngFor="let projeto of listaServicos">
-  <app-servico [projeto]="projeto"></app-servico>
+  <app-projeto [projeto]="projeto"></app-projeto>
 </div>
   <!-- <app-explore-container name="Servicos Page"></app-explore-container> -->
 </ion-content>

@@ -15,25 +15,25 @@ import { RefreshPageService } from './services/refresh-page.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
+class = 'origin';
   usuarioLogado: any;
 
   public selectedIndex = 0;
   public appPages = [
     {
       title: 'Configurações',
-      url: '/servico',
+      url: '/configuracao',
       icon: 'mail'
     },
     {
-      title: 'Serviços',
-
-      icon: 'paper-plane'
+      title: 'Sair',
+      url: '',
+      icon: 'power'
     },
     {
-      title: 'E-mail',
-      url: '/folder/Favorites',
-      icon: 'heart'
+    title: 'Localização',
+    url: '/geolocation-test',
+    icon: 'location'
     }
   ];
 
@@ -47,12 +47,19 @@ export class AppComponent {
     private refreshSrvc: RefreshPageService,
     private menuCtrl: MenuController
   ) {
+   
     this.initializeApp();
   }
 
   initializeApp() {
+    this.class = localStorage.getItem(configHelper.storageKeys.color);
+    console.log('this.classs', this.class)
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      if (this.platform.is('android')) {
+        console.log('Teste android')
+        this.statusBar.backgroundColorByHexString("#33000000");
+      }
+      //this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
     this.refreshSrvc.newUser.subscribe(()=>{
@@ -61,6 +68,12 @@ export class AppComponent {
   }
 
   ngOnInit() {
+
+    this.refreshSrvc.changeTheme.subscribe(v=>{
+      console.log('Evento emitido')
+      this.initializeApp();
+    })
+
    console.log('Teste componente *******************************');
    this.menuCtrl.enable(true);
    const path = window.location.pathname.split('folder/')[1];
