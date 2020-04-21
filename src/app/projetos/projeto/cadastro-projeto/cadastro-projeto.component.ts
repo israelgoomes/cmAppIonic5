@@ -7,6 +7,7 @@ import { ProjetoService } from '../../../services/projeto-service/projeto.servic
 import { SpinnerService } from '../../../services/spinner-service/spinner.service';
 import { ModalController } from '@ionic/angular';
 import { RefreshPageService } from '../../../services/refresh-page.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-projeto',
@@ -21,7 +22,8 @@ export class CadastroProjetoComponent implements OnInit {
               private projetoSrvc: ProjetoService,
               private spinnerSrvc: SpinnerService,
               private modalCtrl: ModalController,
-              private refreshSrvc: RefreshPageService) { }
+              private refreshSrvc: RefreshPageService,
+              private router: Router) { }
   @Output() add = new EventEmitter();
   listaClientes: ClienteModel[] = [];
   ngOnInit() {
@@ -52,6 +54,7 @@ export class CadastroProjetoComponent implements OnInit {
         this.modalCtrl.dismiss();
         this.refreshSrvc.refreshProject.emit();
         this.spinnerSrvc.hide();
+        this.router.navigate(["/tabs/tabs/projetos"]);
     });
   }
 

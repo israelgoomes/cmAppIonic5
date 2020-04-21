@@ -10,6 +10,7 @@ import { ModalCadastroClientePage } from './modal-cadastro-cliente/modal-cadastr
 import { SpinnerService } from '../services/spinner-service/spinner.service';
 import { config } from 'rxjs';
 import { UtilsService } from '../services/utils/utils.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clientes',
@@ -31,8 +32,14 @@ export class ClientesPage implements OnInit {
     private modalCtrl: ModalController,
     private spinnerSrvc: SpinnerService,
     private fb: FormBuilder,
-    private utilSrvc: UtilsService
+    private utilSrvc: UtilsService,
+    private router: Router
   ) {
+
+    if(!localStorage.getItem(configHelper.storageKeys.token)){
+        this.router.navigate(['']);
+    }
+
     this.color = localStorage.getItem(configHelper.storageKeys.color) != null ? 
     localStorage.getItem(configHelper.storageKeys.color) : 'primary'; 
     this.color = this.utilSrvc.colorConvert(this.color);
@@ -64,6 +71,11 @@ export class ClientesPage implements OnInit {
     this.refreshSrvc.refreshClient.subscribe(() => {
       this.ngOnInit();
     });
+  }
+
+  logout() {
+    localStorage.removeItem(configHelper.storageKeys.token);
+    this.router.navigate(['']);
   }
 
   async addClient() {

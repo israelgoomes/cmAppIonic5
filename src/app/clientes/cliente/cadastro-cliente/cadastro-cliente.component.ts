@@ -44,6 +44,7 @@ export class CadastroClienteComponent implements OnInit {
       this.modalCtrl.dismiss();
       this.refreshSrvc.refreshClient.emit();
       this.spinnerSrvc.hide();
+      this.router.navigate(['/tabs/tabs/clientes']);
     });
   }
 

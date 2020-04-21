@@ -40,7 +40,8 @@ export class DetalheProjetoPage implements OnInit {
     private router: Router,
     private util: UtilsService
   ) {
-    this.class = localStorage.getItem(configHelper.storageKeys.color);
+    this.class = localStorage.getItem(configHelper.storageKeys.color) != null ?
+                 localStorage.getItem(configHelper.storageKeys.color) : 'primary' ;
       this.colors = util.populaColor();
       this.changeColorOptions = util.populaColorOption();
   }

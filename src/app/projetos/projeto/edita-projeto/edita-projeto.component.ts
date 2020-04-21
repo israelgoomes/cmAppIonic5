@@ -127,9 +127,9 @@ export class EditaProjetoComponent implements OnInit {
       .updateProject(this.projectForm.get("_id").value, this.projectForm.value)
       .subscribe(() => {
         this.alertSrvc.toast(`Projeto atualizado com sucesso.`, 2000, "top");
-        this.router.navigate(["/tabs/projetos"]);
         this.refreshSrvc.refreshProject.emit();
         this.spinnerSrvc.hide();
+        this.router.navigate(["/tabs/tabs/projetos"]);
       });
   }
 }

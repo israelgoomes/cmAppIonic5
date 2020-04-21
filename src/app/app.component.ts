@@ -26,14 +26,14 @@ class = 'origin';
       icon: 'mail'
     },
     {
-      title: 'Sair',
-      url: '',
-      icon: 'power'
-    },
-    {
     title: 'Localização',
     url: '/geolocation-test',
     icon: 'location'
+    },
+    {
+      title: 'Sair',
+      url: '',
+      icon: 'power'
     }
   ];
 
@@ -42,17 +42,20 @@ class = 'origin';
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private userSrvc: UsuarioService,
-    private route: Router,
+    private router: Router,
     private spinnerSrvc: SpinnerService,
     private refreshSrvc: RefreshPageService,
     private menuCtrl: MenuController
   ) {
-   
+    if(!localStorage.getItem(configHelper.storageKeys.token)){
+      this.router.navigate(['']);
+  }
     this.initializeApp();
   }
 
   initializeApp() {
-    this.class = localStorage.getItem(configHelper.storageKeys.color);
+    this.class = localStorage.getItem(configHelper.storageKeys.color) != null ?
+                 localStorage.getItem(configHelper.storageKeys.color) : 'origin';
     console.log('this.classs', this.class)
     this.platform.ready().then(() => {
       if (this.platform.is('android')) {
@@ -84,10 +87,8 @@ class = 'origin';
   }
 
   sair() {
-    localStorage.removeItem(configHelper.storageKeys.user);
     localStorage.removeItem(configHelper.storageKeys.token);
-    this.route.navigate(['login']);
-
+    this.router.navigate(['login']);
   }
 
   atualizaUser() {

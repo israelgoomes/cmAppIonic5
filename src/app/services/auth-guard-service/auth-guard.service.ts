@@ -17,8 +17,8 @@ export class AuthGuardService  implements CanActivate{
     //   authenticated: false
     // };
 
-    if (!localStorage.getItem(configHelper.storageKeys.user)) {
-      this.router.navigate(['login']);
+    if (!localStorage.getItem(configHelper.storageKeys.token)) {
+      this.router.navigate(['']);
       return false;
     }
 

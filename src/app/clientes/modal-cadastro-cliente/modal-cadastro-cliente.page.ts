@@ -10,7 +10,8 @@ import { configHelper } from 'src/app/configHelper';
 export class ModalCadastroClientePage implements OnInit {
   class = "origin"
   constructor(private navCtrl: NavController, private modalCtrl: ModalController) {
-    this.class = localStorage.getItem(configHelper.storageKeys.color);
+    this.class = localStorage.getItem(configHelper.storageKeys.color) != null ?
+                 localStorage.getItem(configHelper.storageKeys.color) : 'origin';
    }
 
   ngOnInit() {

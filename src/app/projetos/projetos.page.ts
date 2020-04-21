@@ -7,6 +7,7 @@ import { RefreshPageService } from '../services/refresh-page.service';
 import { configHelper } from '../configHelper';
 import { ModalCadastroProjetoPage } from './modal-cadastro-projeto/modal-cadastro-projeto.page';
 import { UtilsService } from '../services/utils/utils.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projetos',
@@ -20,7 +21,8 @@ export class ProjetosPage implements OnInit {
               public spinnerSrvc: SpinnerService,
               private modalCtrl: ModalController,
               private refreshSrvc: RefreshPageService,
-              private utilSrvc: UtilsService) {
+              private utilSrvc: UtilsService,
+              private router: Router) {
                 this.color = localStorage.getItem(configHelper.storageKeys.color) != null ? 
                 localStorage.getItem(configHelper.storageKeys.color) : 'primary';
                 this.color = this.utilSrvc.colorConvert(this.color);
@@ -43,6 +45,10 @@ export class ProjetosPage implements OnInit {
     this.refreshSrvc.refreshProject.subscribe(() => {
       this.ngOnInit();
     });
+  }
+  logout() {
+    localStorage.removeItem(configHelper.storageKeys.token);
+    this.router.navigate(['']);
   }
 
 async cadastroProjeto() {

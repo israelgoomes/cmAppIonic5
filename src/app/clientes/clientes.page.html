@@ -2,10 +2,16 @@
   <ion-menu-button autoHide="false"></ion-menu-button>
 </ion-buttons>
 <ion-fab vertical="top" horizontal="end" slot="fixed">
-  <ion-fab-button [color]="color" (click)="addClient()">
-    <ion-icon name="add"></ion-icon>
+  <ion-fab-button [color]="color" >
+    <ion-icon name="chevron-back-circle-outline"></ion-icon>
   </ion-fab-button>
+  <ion-fab-list side="start">
+    <ion-fab-button><ion-icon (click)="addClient()" name="add"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon (click)="logout()" name="power"></ion-icon></ion-fab-button>
+  </ion-fab-list>
 </ion-fab>
+
+
 <ion-content [fullscreen]="true">
 
 <app-header></app-header>

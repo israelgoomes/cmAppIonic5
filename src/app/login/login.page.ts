@@ -27,69 +27,83 @@ export class LoginPage implements OnInit {
     private refreshSrvc: RefreshPageService,
     private androidFingerprintAuth: AndroidFingerprintAuth,
     private faio: FingerprintAIO
-  ) {}
+  ) { }
 
   ngOnInit() {
-
-
-    // this.faio.show({
-              
-    // })
-
-    if (localStorage.getItem(configHelper.storageKeys.user)) {
-      console.log('TESTE ********')
-      this.androidFingerprintAuth
-        .isAvailable()
-        .then((result) => {
-          console.log('Result', result)
-          if (result.isAvailable) {
-            console.log('TEste 2222')
-            // it is available
-
-            this.androidFingerprintAuth
-              .encrypt({
-                clientId: 'myAppName',
-                username: 'myUsername',
-                password: 'myPassword',
-                dialogTitle: 'Acessar conta',
-                dialogMessage: 'Toque no sensor de digital e confirme a biometria.',
-                dialogHint: '',
-                disableBackup: true,
-                maxAttempts: 3
-              })
-              .then((result) => {
-                if (result.withFingerprint) {
-                  this.menuCtrl.enable(true);
-                  this.route.navigate(['/tabs/tabs/clientes']);
-                  console.log('Successfully encrypted credentials.', result);
-                  console.log('Encrypted credentials: ' + result.token);
-                } else if (result.withBackup) {
-                  console.log(
-                    'Successfully authenticated with backup password!'
-                  );
-                } else { console.log("Didn't authenticate!"); }
-              } ,err=>{
-                  console.log('Erro', err)
-              })
-              .catch((error) => {
-                if (
-                  error ===
-                  this.androidFingerprintAuth.ERRORS.FINGERPRINT_CANCELLED
-                ) {
-                  console.log('Fingerprint authentication cancelled');
-                } else { console.error(error); }
-              });
-          } else {
-            // fingerprint auth isn't available
-          }
-        })
-        .catch((error) => console.error(error));
-    }
-console.log('Teste 3333333333')
+    console.log('Teste 3333333333')
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       senha: ['', Validators.required],
     });
+
+    if (localStorage.getItem(configHelper.storageKeys.token)) {
+      if(localStorage.getItem(configHelper.storageKeys.token)){
+        let user = JSON.parse(localStorage.getItem(configHelper.storageKeys.user));
+        console.log('Teste 3333333333')
+        this.loginForm = this.fb.group({
+          email: [user.email, Validators.required],
+          senha: ['', Validators.required],
+        });
+      }
+      this.faio.show({
+        title: 'Acessar Conta',
+        subtitle: 'Toque no sensor de digital'
+      }).then((result) => {
+        this.menuCtrl.enable(true);
+        this.route.navigate(['/tabs/tabs/clientes']);
+        console.log('Result message', result)
+      }).catch((err) => {
+        console.error('Erro na autenticação', err)
+
+      })
+      // console.log('TESTE ********')
+      // this.androidFingerprintAuth
+      //   .isAvailable()
+      //   .then((result) => {
+      //     console.log('Result', result)
+      //     if (result.isAvailable) {
+      //       console.log('TEste 2222')
+      //       // it is available
+
+      //       this.androidFingerprintAuth
+      //         .encrypt({
+      //           clientId: 'myAppName',
+      //           username: 'myUsername',
+      //           password: 'myPassword',
+      //           dialogTitle: 'Acessar conta',
+      //           dialogMessage: 'Toque no sensor de digital e confirme a biometria.',
+      //           dialogHint: '',
+      //           disableBackup: true,
+      //           maxAttempts: 3
+      //         })
+      //         .then((result) => {
+      //           if (result.withFingerprint) {
+      //             this.menuCtrl.enable(true);
+      //             this.route.navigate(['/tabs/tabs/clientes']);
+      //             console.log('Successfully encrypted credentials.', result);
+      //             console.log('Encrypted credentials: ' + result.token);
+      //           } else if (result.withBackup) {
+      //             console.log(
+      //               'Successfully authenticated with backup password!'
+      //             );
+      //           } else { console.log("Didn't authenticate!"); }
+      //         } ,err=>{
+      //             console.log('Erro', err)
+      //         })
+      //         .catch((error) => {
+      //           if (
+      //             error ===
+      //             this.androidFingerprintAuth.ERRORS.FINGERPRINT_CANCELLED
+      //           ) {
+      //             console.log('Fingerprint authentication cancelled');
+      //           } else { console.error(error); }
+      //         });
+      //     } else {
+      // fingerprint auth isn't available
+      //   }
+      // })
+      // .catch((error) => console.error(error));
+    }
   }
 
   login() {
@@ -103,6 +117,7 @@ console.log('Teste 3333333333')
         this.loginSrvc.registerLogin(data);
         this.route.navigate(['/tabs/tabs/clientes']);
         this.refreshSrvc.newUser.emit();
+        this.loginForm.reset();
         this.spinnerSrvc.hide();
       });
   }
@@ -112,6 +127,11 @@ console.log('Teste 3333333333')
   }
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
+    let user = JSON.parse(localStorage.getItem(configHelper.storageKeys.user));
+    this.loginForm = this.fb.group({
+      email: [user.email, Validators.required],
+      senha: ['', Validators.required],
+    });
   }
 
   visiblePassword() {

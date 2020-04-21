@@ -58,9 +58,9 @@ export class EditaClienteComponent implements OnInit {
     this.clienteSrvc
       .alterClient(this.clientForm.value, this.clientForm.get('_id').value)
       .subscribe(data => {
-        this.router.navigate(['/tabs/clientes']);
         this.refreshSrvc.refreshClient.emit();
         this.spinnerSrvc.hide();
+        this.router.navigate(['/tabs/tabs/clientes']);
       });
     // console.log('Valor do formulário', this.clientForm.value);
   }

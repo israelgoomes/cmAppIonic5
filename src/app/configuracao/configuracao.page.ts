@@ -106,7 +106,8 @@ delete(){
 }
 
 logout(){
-  
+  localStorage.removeItem(configHelper.storageKeys.token);
+  this.router.navigate(['login']);
 }
 
 }

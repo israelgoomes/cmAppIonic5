@@ -46,7 +46,8 @@ export class DetalheClientePage implements OnInit {
     private projetoSrvc: ProjetoService,
     private util: UtilsService
   ) {
-    this.class = localStorage.getItem(configHelper.storageKeys.color);
+    this.class = localStorage.getItem(configHelper.storageKeys.color) != null ?
+                 localStorage.getItem(configHelper.storageKeys.color) : 'primary' ;
 
     if(this.class == 'black'){
       this.fontColor = 'white';
