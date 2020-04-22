@@ -1,18 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-    <ion-title>E-mail</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-buttons >
+  <ion-menu-button autoHide="false"></ion-menu-button>
+</ion-buttons>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">email</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <app-header></app-header>
 
-  <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
+<app-email-form *ngIf="!emailSended" (emailData)="sendEmail($event)"></app-email-form>
+
+<ion-card *ngIf="emailSended">
+  <ion-card-header>
+    E-mail Enviado com Sucesso!
+    <ion-icon [color]="color" name="thumbs-up"></ion-icon>
+  </ion-card-header>
+  <ion-card-content>
+   <p> Para: 
+      {{emails}}</p><br>
+    <!-- <div *ngFor="let email of emailData.emails"> -->
+      <!-- {{email.email}}  -->
+    <p>Assunto:{{emailData.assunto}}</p><br>
+    <!-- {{emailData.assunto}} -->
+   <p>Texto: {{emailData.text}}</p><br>
+    <!-- {{emailData.text}} -->
+
+
+  </ion-card-content>
+
+
+  <ion-button [color]="color" fill="outline" routerLink="/tabs/tabs/clientes">Inicio</ion-button>
+  <ion-button [color]="color" (click)="newEmail()" >Novo E-mail</ion-button>
+
+</ion-card>
+
+
 </ion-content>

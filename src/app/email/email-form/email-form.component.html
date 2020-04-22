@@ -1,0 +1,27 @@
+<form [formGroup]="emailForm">
+<ion-item lines="none">
+<ion-label>Assunto</ion-label>
+</ion-item>
+
+<div class="balao" [ngStyle]="{ 'background-color': color }">
+  <input [ngStyle]="{ 'background-color': color }" formControlName="assunto" />
+</div>
+<ion-item lines="none">
+  <ion-label>Texto</ion-label>
+  </ion-item>
+
+  <div [ngClass]="class">
+  <textarea rows="8" [ngStyle]="{ 'background-color': color }" formControlName="text"></textarea>
+</div>
+
+<ion-card (click)="event()">
+  <ion-card-content>
+    <ion-item style="background-color: white !important;"  
+    lines="none" detail="false">
+      <ion-icon [color]="color" slot="end" name="send-outline"></ion-icon>
+      <ion-label [color]="color">Enviar</ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+
+</form>

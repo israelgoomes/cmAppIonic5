@@ -15,8 +15,8 @@ export class DetalheProjetoPage implements OnInit {
   colors = []
   changeColorOptions = [];
   color = 0;
-  class= "origin"
-  colorOption = 0;
+  class = localStorage.getItem(configHelper.storageKeys.color) != null ?
+  localStorage.getItem(configHelper.storageKeys.color) : 'origin';  colorOption = 0;
   iniciais: string;
   project: ProjetoModel;
   leftStyle = {
@@ -40,8 +40,6 @@ export class DetalheProjetoPage implements OnInit {
     private router: Router,
     private util: UtilsService
   ) {
-    this.class = localStorage.getItem(configHelper.storageKeys.color) != null ?
-                 localStorage.getItem(configHelper.storageKeys.color) : 'primary' ;
       this.colors = util.populaColor();
       this.changeColorOptions = util.populaColorOption();
   }

@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\r\n\r\n  <ion-tab-bar slot=\"bottom\">\r\n    <ion-tab-button color=\"danger\" tab=\"clientes\">\r\n      <ion-icon name=\"people\"></ion-icon>\r\n      <ion-label>Clientes</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"projetos\">\r\n      <ion-icon name=\"bookmarks\"></ion-icon>\r\n      <ion-label>Serviços</ion-label>\r\n    </ion-tab-button>\r\n\r\n    <ion-tab-button tab=\"email\">\r\n      <ion-icon name=\"mail\"></ion-icon>\r\n      <ion-label>E-mail</ion-label>\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n</ion-tabs>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\n\n  <ion-tab-bar slot=\"bottom\">\n    <ion-tab-button color=\"danger\" tab=\"clientes\">\n      <ion-icon name=\"people\"></ion-icon>\n      <ion-label>Clientes</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"projetos\">\n      <ion-icon name=\"bookmarks\"></ion-icon>\n      <ion-label>Serviços</ion-label>\n    </ion-tab-button>\n\n    <ion-tab-button tab=\"email\">\n      <ion-icon name=\"mail\"></ion-icon>\n      <ion-label>E-mail</ion-label>\n    </ion-tab-button>\n  </ion-tab-bar>\n\n</ion-tabs>\n");
 
 /***/ }),
 
@@ -41,7 +41,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | clientes-clientes-module */[__webpack_require__.e("default~clientes-cliente-detalhe-cliente-detalhe-cliente-module~clientes-clientes-module~projetos-pr~ee0bd910"), __webpack_require__.e("default~clientes-clientes-module~clientes-modal-cadastro-cliente-modal-cadastro-cliente-module"), __webpack_require__.e("clientes-clientes-module")]).then(__webpack_require__.bind(null, /*! ../clientes/clientes.module */ "./src/app/clientes/clientes.module.ts")).then(m => m.ClientesPageModule)
+                        loadChildren: () => Promise.all(/*! import() | clientes-clientes-module */[__webpack_require__.e("default~clientes-cliente-detalhe-cliente-detalhe-cliente-module~clientes-clientes-module~email-email~0f1502de"), __webpack_require__.e("default~clientes-clientes-module~clientes-modal-cadastro-cliente-modal-cadastro-cliente-module"), __webpack_require__.e("clientes-clientes-module")]).then(__webpack_require__.bind(null, /*! ../clientes/clientes.module */ "./src/app/clientes/clientes.module.ts")).then(m => m.ClientesPageModule)
                     }
                 ]
             },
@@ -50,7 +50,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => Promise.all(/*! import() | projetos-projetos-module */[__webpack_require__.e("default~clientes-cliente-detalhe-cliente-detalhe-cliente-module~clientes-clientes-module~projetos-pr~ee0bd910"), __webpack_require__.e("projetos-projetos-module")]).then(__webpack_require__.bind(null, /*! ../projetos/projetos.module */ "./src/app/projetos/projetos.module.ts")).then(m => m.ProjetosPageModule)
+                        loadChildren: () => Promise.all(/*! import() | projetos-projetos-module */[__webpack_require__.e("default~clientes-cliente-detalhe-cliente-detalhe-cliente-module~clientes-clientes-module~email-email~0f1502de"), __webpack_require__.e("projetos-projetos-module")]).then(__webpack_require__.bind(null, /*! ../projetos/projetos.module */ "./src/app/projetos/projetos.module.ts")).then(m => m.ProjetosPageModule)
                     }
                 ]
             },
@@ -59,7 +59,7 @@ const routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | email-email-module */ "email-email-module").then(__webpack_require__.bind(null, /*! ../email/email.module */ "./src/app/email/email.module.ts")).then(m => m.EmailPageModule)
+                        loadChildren: () => Promise.all(/*! import() | email-email-module */[__webpack_require__.e("default~clientes-cliente-detalhe-cliente-detalhe-cliente-module~clientes-clientes-module~email-email~0f1502de"), __webpack_require__.e("email-email-module")]).then(__webpack_require__.bind(null, /*! ../email/email.module */ "./src/app/email/email.module.ts")).then(m => m.EmailPageModule)
                     }
                 ]
             },

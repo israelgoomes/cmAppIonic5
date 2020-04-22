@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login-service/login.service';
 import { Router } from '@angular/router';
 import { configHelper } from '../configHelper';
-import { NavController, MenuController } from '@ionic/angular';
+import { NavController, MenuController, AlertController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SpinnerService } from '../services/spinner-service/spinner.service';
 import { RefreshPageService } from '../services/refresh-page.service';
 import { AndroidFingerprintAuth } from '@ionic-native/android-fingerprint-auth/ngx';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
+import { AlertService } from '../services/alert-service/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginPage implements OnInit {
     private spinnerSrvc: SpinnerService,
     private refreshSrvc: RefreshPageService,
     private androidFingerprintAuth: AndroidFingerprintAuth,
-    private faio: FingerprintAIO
+    private faio: FingerprintAIO,
+    private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
@@ -118,6 +120,15 @@ export class LoginPage implements OnInit {
         this.route.navigate(['/tabs/tabs/clientes']);
         this.refreshSrvc.newUser.emit();
         this.loginForm.reset();
+        this.spinnerSrvc.hide();
+      },async  error =>{
+        console.log('ERRO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', error)
+        let alert = await this.alertCtrl.create({
+          header: 'Erro na autenticação',
+          message: error.error.message,
+          buttons: ['OK']
+        });
+        alert.present();
         this.spinnerSrvc.hide();
       });
   }

@@ -20,7 +20,9 @@ export class DetalheClientePage implements OnInit {
   color = 0;
   colorOption = 0;
   projectList: Array<ProjetoModel> = [];
-  class = 'origin'
+  class = localStorage.getItem(configHelper.storageKeys.color) != null ?
+  localStorage.getItem(configHelper.storageKeys.color) : 'origin';
+
   leftStyle = {
     'border': 'none',
     'width': '28%',
@@ -46,18 +48,17 @@ export class DetalheClientePage implements OnInit {
     private projetoSrvc: ProjetoService,
     private util: UtilsService
   ) {
-    this.class = localStorage.getItem(configHelper.storageKeys.color) != null ?
-                 localStorage.getItem(configHelper.storageKeys.color) : 'primary' ;
-
     if(this.class == 'black'){
       this.fontColor = 'white';
     }
-
+    
+    console.log('Class', this.class)
     this.colors = util.populaColor();
     this.changeColorOptions = util.populaColorOption();
   }
 
   ngOnInit() {
+    console.log('Style', this.rightStyle)
     setInterval(() => {
       this.color = this.color + 1;
     }, 200);
