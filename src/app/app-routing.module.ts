@@ -40,6 +40,12 @@ const routes: Routes = [
     path: 'finge-print-aio',
     loadChildren: () => import('./finge-print-aio/finge-print-aio.module').then( m => m.FingePrintAioPageModule)
   },
+  {
+    //path: '',
+    path: 'how-to-cm-app',
+    loadChildren: () => import('./how-to-cm-app/how-to-cm-app.module').then( m => m.HowToCmAppPageModule), canActivate: [AuthGuardService]
+  },
+
 ];
 @NgModule({
   imports: [

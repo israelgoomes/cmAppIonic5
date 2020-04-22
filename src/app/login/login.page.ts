@@ -52,7 +52,11 @@ export class LoginPage implements OnInit {
         subtitle: 'Toque no sensor de digital'
       }).then((result) => {
         this.menuCtrl.enable(true);
+        if(!localStorage.getItem(configHelper.storageKeys.concluded)){
+          this.route.navigate(['/how-to-cm-app'])
+        }else{
         this.route.navigate(['/tabs/tabs/clientes']);
+        }
         console.log('Result message', result)
       }).catch((err) => {
         console.error('Erro na autenticação', err)
@@ -117,12 +121,16 @@ export class LoginPage implements OnInit {
       .subscribe((data) => {
         console.log('token enviado', data.token);
         this.loginSrvc.registerLogin(data);
+
+        if(!localStorage.getItem(configHelper.storageKeys.concluded)){
+          this.route.navigate(['/how-to-cm-app'])
+        }else{
         this.route.navigate(['/tabs/tabs/clientes']);
+        }
         this.refreshSrvc.newUser.emit();
         this.loginForm.reset();
         this.spinnerSrvc.hide();
       },async  error =>{
-        console.log('ERRO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', error)
         let alert = await this.alertCtrl.create({
           header: 'Erro na autenticação',
           message: error.error.message,

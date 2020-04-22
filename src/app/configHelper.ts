@@ -8,5 +8,6 @@ export class configHelper {
         user: 'novadesign.user',
         selectClient: 'novadesign.select.client',
         color: 'cm.theme',
+        concluded: 'tutorial.concluido'
     }
 }
