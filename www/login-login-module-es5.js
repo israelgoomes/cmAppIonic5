@@ -279,7 +279,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var LoginPage =
     /*#__PURE__*/
     function () {
-      function LoginPage(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth, faio) {
+      function LoginPage(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth, faio, alertCtrl) {
         _classCallCheck(this, LoginPage);
 
         this.loginSrvc = loginSrvc;
@@ -291,6 +291,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.refreshSrvc = refreshSrvc;
         this.androidFingerprintAuth = androidFingerprintAuth;
         this.faio = faio;
+        this.alertCtrl = alertCtrl;
         this.isVisiblePassword = false;
       }
 
@@ -391,6 +392,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this2.loginForm.reset();
 
             _this2.spinnerSrvc.hide();
+          }, function (error) {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this2, void 0, void 0,
+            /*#__PURE__*/
+            regeneratorRuntime.mark(function _callee() {
+              var alert;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      console.log('ERRO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', error);
+                      _context.next = 3;
+                      return this.alertCtrl.create({
+                        header: 'Erro na autenticação',
+                        message: error.error.message,
+                        buttons: ['OK']
+                      });
+
+                    case 3:
+                      alert = _context.sent;
+                      alert.present();
+                      this.spinnerSrvc.hide();
+
+                    case 6:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
           });
         }
       }, {
@@ -436,6 +466,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"]
       }, {
         type: _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]
       }];
     };
 
@@ -447,7 +479,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./login.page.scss */
       "./src/app/login/login.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"], _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"], _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"]])], LoginPage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_login_service_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"], _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"], _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"], _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"], _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]])], LoginPage);
     /***/
   },
 

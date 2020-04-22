@@ -145,7 +145,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginPage = class LoginPage {
-    constructor(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth, faio) {
+    constructor(loginSrvc, route, navCtrl, fb, menuCtrl, spinnerSrvc, refreshSrvc, androidFingerprintAuth, faio, alertCtrl) {
         this.loginSrvc = loginSrvc;
         this.route = route;
         this.navCtrl = navCtrl;
@@ -155,6 +155,7 @@ let LoginPage = class LoginPage {
         this.refreshSrvc = refreshSrvc;
         this.androidFingerprintAuth = androidFingerprintAuth;
         this.faio = faio;
+        this.alertCtrl = alertCtrl;
         this.isVisiblePassword = false;
     }
     ngOnInit() {
@@ -240,7 +241,16 @@ let LoginPage = class LoginPage {
             this.refreshSrvc.newUser.emit();
             this.loginForm.reset();
             this.spinnerSrvc.hide();
-        });
+        }, (error) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log('ERRO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', error);
+            let alert = yield this.alertCtrl.create({
+                header: 'Erro na autenticação',
+                message: error.error.message,
+                buttons: ['OK']
+            });
+            alert.present();
+            this.spinnerSrvc.hide();
+        }));
     }
     cadastroUser() {
         // this.navCtrl.setRoot('CadastroUserPage')
@@ -266,7 +276,8 @@ LoginPage.ctorParameters = () => [
     { type: _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"] },
     { type: _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"] },
     { type: _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"] },
-    { type: _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"] }
+    { type: _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] }
 ];
 LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -282,7 +293,8 @@ LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _services_spinner_service_spinner_service__WEBPACK_IMPORTED_MODULE_7__["SpinnerService"],
         _services_refresh_page_service__WEBPACK_IMPORTED_MODULE_8__["RefreshPageService"],
         _ionic_native_android_fingerprint_auth_ngx__WEBPACK_IMPORTED_MODULE_9__["AndroidFingerprintAuth"],
-        _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"]])
+        _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_10__["FingerprintAIO"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]])
 ], LoginPage);
 
 
